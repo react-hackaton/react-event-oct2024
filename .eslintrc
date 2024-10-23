@@ -1,0 +1,73 @@
+{
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ],
+        "paths": [
+          "src"
+        ]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/order": [
+      2,
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:import/errors"
+  ],
+  "plugins": [
+    "prettier",
+    "promise",
+    "import"
+  ]
+}
