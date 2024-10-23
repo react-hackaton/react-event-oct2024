@@ -9,4 +9,5 @@ export default [
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
   // plugin:react-hooks/recommended
+  // "extends": ["airbnb", "airbnb/hooks"]
 ];
