@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+
 import "./App.css";
+import Button from "@mui/material/Button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,9 +14,13 @@ function App() {
           Пример базового счетчика. Каждый клик переназначает state на +1
           значение
         </p>
-        <button type="button" onClick={() => setCount((prev) => prev + 1)}>
+
+        <Button
+          variant="contained"
+          onClick={() => setCount((prev) => prev + 1)}
+        >
           count is {count}
-        </button>
+        </Button>
       </div>
     </>
   );
