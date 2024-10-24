@@ -7,3 +7,4 @@
 ESlint, Prettier, ES7+ React/Redux/React-Native snippets.
 
 Рената
+Vlad
