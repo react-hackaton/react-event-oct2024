@@ -11,5 +11,5 @@ ESlint, Prettier, ES7+ React/Redux/React-Native snippets.
 Рената @RenataGaraeva
 Марина @MarinaViktoria
 Марина @MarinaViktoria (one more try)
-Aigul @aigul-ermak
+Aigul @aigul-ermak (one more try)
 
