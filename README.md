@@ -9,3 +9,4 @@ ESlint, Prettier, ES7+ React/Redux/React-Native snippets.
 Участники проекта:
 Иван @lookWhatIvanDid
 Рената @RenataGaraeva
+Марина @MarinaViktoria
