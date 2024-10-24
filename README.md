@@ -6,4 +6,6 @@
 - Для удобства установите полноценной работы установите Расширения:
 ESlint, Prettier, ES7+ React/Redux/React-Native snippets.
 
-Рената
+Участники проекта:
+Иван @lookWhatIvanDid
+Рената @RenataGaraeva
