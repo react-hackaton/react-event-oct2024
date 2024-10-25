@@ -13,6 +13,7 @@ ESlint, Prettier, ES7+ React/Redux/React-Native snippets.
 Рената @RenataGaraeva
 
 Марина @MarinaViktoria - created for check trello
+trello-test-marina
 
 Aigul @aigul-ermak - created for check trello
 
