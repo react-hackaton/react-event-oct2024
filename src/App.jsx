@@ -17,8 +17,7 @@ function App() {
       <h1>Это приложение на Vite + React + MUI</h1>
       <div className="card">
         <p className="read-the-docs">
-          Пример базового счетчика. Каждый клик переназначает state на +1
-          значение
+          Каждый клик добавляет +1 к значению
         </p>
 
         <Button
