@@ -31,10 +31,9 @@ function App() {
           count is {count}
         </Button>
       </div>
-
       <ToastContainer
-        position="top-right"
-        autoClose={5000}
+        position="bottom-right"
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -42,7 +41,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
+        theme="light"
         transition={Bounce}
       />
     </>
