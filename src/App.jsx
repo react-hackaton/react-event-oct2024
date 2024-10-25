@@ -9,7 +9,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   const showToast = () => {
-    toast(`Button clicked ${count + 1} times!`);
+    toast(`🦄 Button clicked ${count + 1} times!`);
   };
 
   return (
