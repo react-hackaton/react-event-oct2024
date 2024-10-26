@@ -94,6 +94,7 @@ function Requests() {
               <Box
                 sx={{
                   display: "flex",
+                  width: "970px",
                 }}
               >
                 <RequestList searchTerm={searchWord} />
