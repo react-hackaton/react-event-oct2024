@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Layout } from "./components/Layout";
 import LoginPage from "./pages/login";
 import ProfilePage from "./pages/profile";
+import Help from "./components/Help";
+
 
 function App() {
   return (
@@ -13,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          {/*<Route path="/help-request" element={<Contact />} />*/}
+          <Route path="/help-request" element={<Help />} />
 
           {/*<Route path="*" element={<NotFound />} />*/}
         </Routes>
