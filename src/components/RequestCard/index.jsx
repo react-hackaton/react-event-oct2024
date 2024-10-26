@@ -30,7 +30,7 @@ function RequestCard({ request }) {
     <Paper
       elevation={3}
       sx={{
-        width: "290px",
+        width: "270px",
         padding: "16px",
         borderRadius: "8px",
         display: "flex",

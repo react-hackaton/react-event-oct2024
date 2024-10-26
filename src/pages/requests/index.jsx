@@ -38,7 +38,8 @@ function Requests() {
             display: "flex",
             justifyContent: "center",
             alignItems: "start",
-            margin: "0 auto"
+            margin: "0 auto",
+            paddingRight: "20px"
           }}
         >
           {/* filter */}
@@ -51,7 +52,8 @@ function Requests() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: "1060px"
+              width: "100%",
+              maxWidth: "1060px"
             }}
           >
             <Box
@@ -79,24 +81,23 @@ function Requests() {
                   justifyContent: "space-between",
                   alignItems: "center",
                   width: "100%",
-                  marginLeft: "20px",
-                  marginTop: "12px"
+                  paddingTop: "20px"
+                  // paddingLeft: "20px",
                 }}
               >
                 <Typography
                   sx={{
                     fontSize: "14px",
-                    fontWeight: "700"
+                    fontWeight: "700",
+                    paddingLeft: "20px"
                   }}
                 >
                   Найдено: 21
                 </Typography>
 
-                <Box
-                  sx={{
-                    marginRight: "20px"
-                  }}
-                >
+                <Box sx={{
+                  paddingRight: "20px"
+                }}>
                   <IconButton aria-label="grid view">
                     <GridViewIcon />
                   </IconButton>
