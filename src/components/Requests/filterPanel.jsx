@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { Box, Typography, Button, TextField } from "@mui/material";
-import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { Box, Typography, Button } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
 
 import HelpFilter from "./helperFilter.jsx";
 
@@ -44,14 +44,15 @@ function FilterPanel() {
 
         <Box
           sx={{
-            paddingLeft: "42px",
+            marginLeft: "42px",
           }}
         >
           <Box
             sx={{
               height: "48px",
               alignContent: "center",
-              border: "1px solid #000",
+              border: "1px solid #D3D3D3",
+              paddingLeft: "42px",
             }}
           >
             <Typography
@@ -66,6 +67,7 @@ function FilterPanel() {
           <Box
             sx={{
               backgroundColor: "#F5F5F5",
+              paddingLeft: "42px",
             }}
           >
             <HelpFilter
@@ -83,7 +85,11 @@ function FilterPanel() {
             />
           </Box>
         </Box>
-        <Box>
+        <Box
+          sx={{
+            marginTop: "20px",
+          }}
+        >
           <Typography
             sx={{
               fontSize: "14px",
@@ -91,37 +97,23 @@ function FilterPanel() {
           >
             Помощь актуальна до:
           </Typography>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DatePicker
-              label="Выберите дату"
-              value={selectedDate}
-              onChange={(newValue) => setSelectedDate(newValue)}
-              renderInput={(params) => (
-                <TextField
-                  fullWidth
-                  label={params.label}
-                  inputRef={params.inputRef}
-                  error={params.error}
-                  helperText={params.helperText}
-                  InputProps={params.InputProps}
-                  {...params.InputLabelProps}
-                />
-              )}
-            />
-          </LocalizationProvider>
+          {/* <DatePicker */}
+          {/*  label="Uncontrolled picker" */}
+          {/*  defaultValue={dayjs("2022-04-17")} */}
+          {/* /> */}
+          <Button
+            variant="outlined"
+            fullWidth
+            sx={{
+              borderRadius: "4px",
+              border: "1px solid #000",
+              mt: 2,
+              color: "#000000",
+            }}
+          >
+            СБРОСИТЬ
+          </Button>
         </Box>
-        <Button
-          variant="outlined"
-          fullWidth
-          sx={{
-            borderRadius: "4px",
-            border: "1px solid #000",
-            mt: 2,
-            color: "#000000",
-          }}
-        >
-          СБРОСИТЬ
-        </Button>
       </Box>
     </Box>
   );
