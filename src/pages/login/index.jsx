@@ -29,7 +29,6 @@ function LoginPage() {
         width="50%"
         height="100%"
         sx={{
-          border: "1px solid grey",
           paddingLeft: "40px",
         }}
       >
@@ -86,7 +85,6 @@ function LoginPage() {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-          border: "1px solid grey",
           paddingLeft: "40px",
         }}
       >
