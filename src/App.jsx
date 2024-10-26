@@ -1,16 +1,24 @@
 import React from "react";
-
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
-import { Counter } from "./components/Counter";
+import { Layout } from "./components/Layout";
+import LoginPage from "./pages/login";
+import ProfilePage from "./pages/profile";
 
 function App() {
   return (
-    <>
-      <h1>Это приложение на Vite + React + MUI</h1>
-      <Counter />
-    </>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          {/*<Route path="/help-request" element={<Contact />} />*/}
+
+          {/*<Route path="*" element={<NotFound />} />*/}
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
