@@ -3,8 +3,7 @@ import { Container, Typography, Box, Stack} from "@mui/material";
 function Personaldata() {
 
     return(  
-        <Container sx={{ 
-            maxWidth: "550px !important"}}>
+        <Container>
             <Box sx={{ mb: 2 }}>
             <Typography variant="h6" sx={{ mb: 1.5 }}>Профиль</Typography>
                 <Stack direction="row" spacing={(.5)}>
