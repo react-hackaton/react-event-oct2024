@@ -3,10 +3,10 @@ import ProfileCard from "../../components/ProfileCard.jsx";
 
 const ProfilePage = () => {
   return (
-    <>
+    <Container sx={{ backgroundColor: "#F5F5F5", padding: 4 }}>
       <Typography variant="h5">Мой профиль</Typography>
 
-      <Box display="flex" justifyContent="between" alignItems="center">
+      <Box display="flex" justifyContent="between" alignItems="center" sx={{ gap: 2 }}>
         <Box sx={{ width: "320px" }}>
           <ProfileCard />
         </Box>
@@ -14,13 +14,8 @@ const ProfilePage = () => {
           Place for content
         </Box>
       </Box>
-    </>
+    </Container>
   );
 };
 
 export default ProfilePage;
-
-// import * as React from 'react';
-//
-// import Grid2 from '@mui/material/Grid2';
-
