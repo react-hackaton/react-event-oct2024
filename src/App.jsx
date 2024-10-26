@@ -1,17 +1,14 @@
 import React from "react";
 
-
-import "./App.css";
-
 import "react-toastify/dist/ReactToastify.css";
-import Personaldata from "./components/Personaldata";
 import { Layout } from "./components/Layout";
+import ProfilePage from "./pages/profile";
 
 function App() {
   return (
     <Layout>
-      <p>Children</p>
-      <Personaldata/>
+
+      <ProfilePage />
     </Layout>
   );
 }
