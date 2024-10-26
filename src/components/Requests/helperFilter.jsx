@@ -23,8 +23,8 @@ export default function HelpFilter({ title, options }) {
           <Box key={index} sx={{ display: "flex", alignItems: "center" }}>
             <Checkbox
               sx={{
-                height: "42px",
-                width: "42px",
+                height: "35px",
+                width: "35px",
               }}
             />
             <Typography sx={{ fontSize: "14px" }}>{option}</Typography>
