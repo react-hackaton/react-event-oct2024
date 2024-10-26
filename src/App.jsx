@@ -7,7 +7,6 @@ import ProfilePage from "./pages/profile";
 function App() {
   return (
     <Layout>
-
       <ProfilePage />
     </Layout>
   );

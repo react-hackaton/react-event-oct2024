@@ -1,23 +1,17 @@
-import React from "react";
-
-import { Box } from "@mui/material";
-
+import { Container, Box } from "@mui/material";
 import Footer from "./components/Footer";
-import { Header } from "./components/Header";
+import Header from "./components/Header";
 
 export function Layout({ children }) {
   return (
-    <Box sx={{ width: "100vw", height: "100vh" }}>
+    <Box width="1400px"
+         maxWidth="100%" sx={{ margin: "0 auto" }}>
       <Header />
-      <Box
-        sx={{
-          height: "calc(100vh - 236px)",
-          width: 1500,
-        }}
-      >
+      <Container width="1400px">
         {children}
-      </Box>
+      </Container>
       <Footer />
     </Box>
-  );
+  )
+    ;
 }
