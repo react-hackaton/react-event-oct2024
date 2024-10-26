@@ -15,6 +15,3 @@ Elena @elen-oz
 Марина @MarinaViktoria
 
 Aigul @aigul-ermak
-
-Elena @elen-oz
-
