@@ -11,10 +11,17 @@ import SearchResultsHeader from "../../components/Requests/searchSection.jsx";
 
 function Requests() {
   const [view, setView] = useState("grid");
+  const [searchWord, setSearchWord] = useState("");
+
   const handleViewChange = (newView) => {
     setView(newView);
     console.log(`View changed to: ${newView}`);
   };
+
+  const handleSearchChange = (event) => {
+    setSearchWord(event.target.value);
+  };
+
   return (
     <Box
       sx={{
@@ -70,7 +77,10 @@ function Requests() {
                 marginBottom: "25px",
               }}
             >
-              <SearchResultsHeader />
+              <SearchResultsHeader
+                searchTerm={searchWord}
+                onSearchChange={handleSearchChange}
+              />
             </Box>
 
             <Box
@@ -84,55 +94,9 @@ function Requests() {
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  width: "100%",
-                  paddingTop: "20px",
-                  // paddingLeft: "20px",
                 }}
               >
-                <Typography
-                  sx={{
-                    fontSize: "14px",
-                    fontWeight: "700",
-                    paddingLeft: "20px",
-                  }}
-                >
-                  Найдено: 21
-                </Typography>
-
-                <Box
-                  sx={{
-                    paddingRight: "20px",
-                  }}
-                >
-                  <IconButton
-                    aria-label="grid view"
-                    onClick={() => handleViewChange("grid")}
-                  >
-                    <GridViewIcon />
-                  </IconButton>
-                  <IconButton
-                    aria-label="grid view"
-                    onClick={() => handleViewChange("list")}
-                  >
-                    <ListAlt />
-                  </IconButton>
-                  <IconButton
-                    aria-label="map view"
-                    onClick={() => handleViewChange("map")}
-                  >
-                    <LocationOnIcon />
-                  </IconButton>
-                </Box>
-              </Box>
-
-              <Box
-                sx={{
-                  display: "flex",
-                }}
-              >
-                <RequestList />
+                <RequestList searchTerm={searchWord} />
               </Box>
             </Box>
           </Box>
