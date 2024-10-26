@@ -14,7 +14,7 @@ import users from "../../data/userData.js";
 
 import ProfileLogin from "./profileLogin.jsx";
 
-export function LoginUser() {
+function LoginUser() {
   return (
     <Box
       sx={{
@@ -134,3 +134,4 @@ export function LoginUser() {
     </Box>
   );
 }
+export default LoginUser;

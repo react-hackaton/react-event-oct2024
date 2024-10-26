@@ -4,7 +4,7 @@ import Personaldata from "../../components/Personaldata.jsx";
 
 const ProfilePage = () => {
   return (
-    <Container sx={{ backgroundColor: "#F5F5F5", padding: 4 }}>
+    <Box sx={{ backgroundColor: "#F5F5F5", padding: 4 }}>
       <Typography variant="h5">Мой профиль</Typography>
 
       <Box display="flex" justifyContent="between" alignItems="start" sx={{ gap: 2 }}>
@@ -15,7 +15,7 @@ const ProfilePage = () => {
           <Personaldata />
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 };
 
