@@ -11,23 +11,21 @@ function ProfileLogin({ title, login, password }) {
     <Paper
       variant="outlined"
       sx={{
-        p: 2,
-        mb: 2,
+        p: 1,
         display: "flex",
-        alignItems: "center",
         border: `1px solid ${theme.palette.primary.main}`,
       }}
     >
-      <Box display="flex" alignItems="center" sx={{ mr: 2 }}>
+      <Box display="flex" alignItems="flex-start" sx={{ mr: 2 }}>
         <InfoIcon color="primary" />
       </Box>
 
       <Box display="flex" flexDirection="column" alignItems="flex-start">
-        <Typography variant="body1" fontWeight="bold" sx={{ mb: 0.5 }}>
+        <Typography variant="body2" fontWeight="bold" sx={{ mb: 0.5 }}>
           {title}
         </Typography>
-        <Typography variant="body2">Логин: {login}</Typography>
-        <Typography variant="body2">Пароль: {password}</Typography>
+        <Typography variant="caption">Логин: {login}</Typography>
+        <Typography variant="caption">Пароль: {password}</Typography>
       </Box>
     </Paper>
   );
