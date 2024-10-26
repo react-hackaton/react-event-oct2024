@@ -4,6 +4,7 @@ import "./App.css";
 import Button from "@mui/material/Button";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Personaldata from "./Personaldata";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -40,6 +41,7 @@ function App() {
         theme="light"
         transition={Bounce}
       />
+      <Personaldata/>
     </>
   );
 }
