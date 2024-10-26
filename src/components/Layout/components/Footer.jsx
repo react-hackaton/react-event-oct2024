@@ -8,19 +8,16 @@ export default function Footer() {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height={152}
-      padding="10px"
+      width="100%"
       sx={{
-        boxShadow: "0px 0px 0px 1px rgba(224, 224, 224, 1)",
+        height: "152px"
       }}
     >
       <Box
         display="flex"
         alignItems="center"
         justifyContent="space-between"
-        height={64}
-        width={1500}
-        padding="10px"
+        width="100%"
       >
         <Typography>Об ивенте </Typography>
         <Typography>GitHub проекта</Typography>
