@@ -16,10 +16,7 @@ function App() {
     <>
       <h1>Это приложение на Vite + React + MUI</h1>
       <div className="card">
-        <p className="read-the-docs">
-          Каждый клик добавляет +1 к значению
-        </p>
-
+        <p className="read-the-docs">Каждый клик добавляет +1 к значению</p>
         <Button
           variant="contained"
           onClick={() => {
