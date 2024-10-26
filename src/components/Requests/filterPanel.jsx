@@ -12,16 +12,16 @@ function FilterPanel() {
   return (
     <Box
       sx={{
-        width: "320px",
+        width: "290px",
         height: "947px",
         padding: "20px",
-        backgroundColor: "#ffffff",
+        backgroundColor: "#ffffff"
       }}
     >
       <Typography
         variant="h6"
         sx={{
-          marginBottom: "25px",
+          marginBottom: "25px"
         }}
       >
         Фильтрация
@@ -34,7 +34,7 @@ function FilterPanel() {
 
       <Box
         sx={{
-          marginTop: "20px",
+          marginTop: "20px"
         }}
       >
         <HelpFilter
@@ -42,22 +42,18 @@ function FilterPanel() {
           options={["Вещи", "Финансирование"]}
         />
 
-        <Box
-          sx={{
-            marginLeft: "42px",
-          }}
-        >
+        <Box>
           <Box
             sx={{
               height: "48px",
               alignContent: "center",
               border: "1px solid #D3D3D3",
-              paddingLeft: "42px",
+              paddingLeft: "10px"
             }}
           >
             <Typography
               sx={{
-                fontSize: "14px",
+                fontSize: "14px"
               }}
             >
               Волонтерство
@@ -67,7 +63,7 @@ function FilterPanel() {
           <Box
             sx={{
               backgroundColor: "#F5F5F5",
-              paddingLeft: "42px",
+              padding: "20px"
             }}
           >
             <HelpFilter
@@ -87,12 +83,12 @@ function FilterPanel() {
         </Box>
         <Box
           sx={{
-            marginTop: "20px",
+            marginTop: "20px"
           }}
         >
           <Typography
             sx={{
-              fontSize: "14px",
+              fontSize: "14px"
             }}
           >
             Помощь актуальна до:
@@ -108,7 +104,7 @@ function FilterPanel() {
               borderRadius: "4px",
               border: "1px solid #000",
               mt: 2,
-              color: "#000000",
+              color: "#000000"
             }}
           >
             СБРОСИТЬ

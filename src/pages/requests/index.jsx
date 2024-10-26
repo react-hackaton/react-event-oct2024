@@ -28,7 +28,7 @@ function Requests() {
           variant="h5"
           sx={{
             textAlign: "start",
-            marginLeft: "20px",
+            marginLeft: "10px",
             marginTop: "20px",
           }}
         >
@@ -42,10 +42,12 @@ function Requests() {
             margin: "0 auto",
           }}
         >
+          {/* filter */}
           <Box sx={{ display: "flex", padding: 2 }}>
             <FilterPanel />
           </Box>
 
+          {/* main section */}
           <Box
             sx={{
               display: "flex",
