@@ -78,7 +78,7 @@ function Requests() {
             >
               <Box
                 sx={{
-                  display: "flex",
+                  display: "git merge devflex",
                   justifyContent: "space-between",
                   alignItems: "center",
                   width: "100%",
