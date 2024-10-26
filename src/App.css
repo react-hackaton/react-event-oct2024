@@ -1,4 +1,4 @@
-#root {
+/*#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -11,8 +11,12 @@
 
 .read-the-docs {
   color: #888;
-}
+}*/
+
+
+
 /*Personal data*/
+/*
 .personalData {
   display: flex;
   flex-direction: column;
@@ -26,5 +30,5 @@
   text-align: start;
   display: block;
   width: 550px;
-}
+}*/
 

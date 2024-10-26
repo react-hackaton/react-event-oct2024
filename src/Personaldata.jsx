@@ -1,34 +1,53 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Box } from "@mui/material";
 
 function Personaldata() {
-    return(
+    const customTypographyStyle = {
+        fontFamily: 'Roboto',
+        fontSize: '20px',
+        fontWeight: 'bold',
+        lineHeight: '32px',
+        letterSpacing: '0.15px',
+        textAlign: 'left',
+        mb:1
+      };
+    return(  
         <Container className="personalData">
-            <Typography variant="h5" gutterBottom="10%">Профиль</Typography>
-                <Typography variant="p">Фамилия: Фомина</Typography>
-                <Typography variant="p">Имя: Ангелина</Typography>
+            <Box sx={{ mb: 2 }}>
+            <Typography sx={customTypographyStyle}>Профиль</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:0.5}}><strong>Фамилия:</strong> Фомина</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px'}}><strong>Имя:</strong> Ангелина</Typography>
+            </Box>
 
-            <Typography variant="h5" gutterBottom="10%">Дата рождения</Typography> 
-                <Typography variant="p" gutterBottom>13.02.1994</Typography>
+            <Box sx={{ mb: 3 }}>
+            <Typography sx={customTypographyStyle}>Дата рождения</Typography> 
+                <Typography variant="body1" sx={{ fontSize: '14px'}}>13.02.1994</Typography>
+            </Box>
 
-            <Typography variant="h5" gutterBottom="10%">Локация для помощи</Typography>  
-                <Typography variant="body1">Область: Владимирская</Typography>
-                <Typography variant="body1">Населённый пункт: Владимир</Typography><br/>
-                <Typography variant="body1">Область: Нижегородская</Typography>
-                <Typography variant="body1" gutterBottom>Населённый пункт: Нижний Новгород</Typography>
+            <Box sx={{ mb: 3 }}>
+            <Typography sx={customTypographyStyle}>Локация для помощи</Typography>  
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:0.5}}><strong>Область:</strong> Владимирская</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:2 }}><strong>Населённый пункт:</strong> Владимир</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:0.5 }}><strong>Область:</strong> Нижегородская</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px'}}><strong>Населённый пункт:</strong> Нижний Новгород</Typography>
+            </Box>
 
-            <Typography variant="h5" gutterBottom="10%">Образование</Typography>  
-                <Typography variant="body1">Учреждение: МОУ СОШ №7</Typography>
-                <Typography variant="body1">Уровень образования: Средний общий</Typography>
-                <Typography variant="body1">Год окончания: 2010</Typography>
+            <Box sx={{ mb: 3 }}>
+            <Typography sx={customTypographyStyle}>Образование</Typography>  
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:0.5 }}><strong>Учреждение:</strong> МОУ СОШ №7</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:0.5 }}><strong>Уровень образования:</strong> Средний общий</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:2 }}><strong>Год окончания:</strong> 2010</Typography>
 
-                <Typography variant="body1">Учреждение: Московский государственный университет имени М. В. Ломоносова</Typography>
-                <Typography variant="body1">Уровень образования: Высший</Typography>
-                <Typography variant="body1">Направление: Информатика и вычислительная техника</Typography>
-                <Typography variant="body1">Год окончания: 2023</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:0.5 }}><strong>Учреждение:</strong> Московский государственный университет имени М. В. Ломоносова</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:0.5 }}><strong>Уровень образования:</strong> Высший</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px', mb:0.5 }}><strong>Направление:</strong> Информатика и вычислительная техника</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px'}}><strong>Год окончания:</strong> 2023</Typography>
+            </Box>
 
-            <Typography variant="h5" gutterBottom="10%">Обо мне</Typography>
-                <Typography variant="body1" className="aboutMe">Я волонтёр, который работает с пенсионерами, и этотприносит мне огромную радость. Каждый день я общаюсь с удивительными людьми, которые делятся своим жизненным опытом и мудростью. Мы вместе проводим время, играем в настольные книги, читаем книги и просто беседуем. Я вижу, как важно для них чувствовать внимание и заботу, и это вдохновляет меня работать ещё усерднее. Каждая улыбка и благодарность от них наполняют моё сердце теплом.<br/> Волонтёрство с пенсионерами стало для меня не только делом, но и настоящей дружбой.
+            <Box sx={{ mb: 3 }}>
+            <Typography sx={customTypographyStyle}>Обо мне</Typography>
+                <Typography variant="body1" sx={{ fontSize: '14px'}} className="aboutMe">Я волонтёр, который работает с пенсионерами, и этотприносит мне огромную радость. Каждый день я общаюсь с удивительными людьми, которые делятся своим жизненным опытом и мудростью. Мы вместе проводим время, играем в настольные книги, читаем книги и просто беседуем. Я вижу, как важно для них чувствовать внимание и заботу, и это вдохновляет меня работать ещё усерднее. Каждая улыбка и благодарность от них наполняют моё сердце теплом.<br/> Волонтёрство с пенсионерами стало для меня не только делом, но и настоящей дружбой.
                 </Typography>
+            </Box>
         </Container>    
     )
 }
