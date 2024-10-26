@@ -3,14 +3,13 @@ import React from "react";
 import "./App.css";
 
 import "react-toastify/dist/ReactToastify.css";
-import { Counter } from "./components/Counter";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
-    <>
-      <h1>Это приложение на Vite + React + MUI</h1>
-      <Counter />
-    </>
+    <Layout>
+      <p>Children</p>
+    </Layout>
   );
 }
 
