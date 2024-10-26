@@ -14,7 +14,7 @@ import users from "../../data/userData.js";
 
 import ProfileLogin from "./profileLogin.jsx";
 
-export function Login() {
+export function LoginUser() {
   return (
     <Box
       sx={{
