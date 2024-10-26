@@ -20,7 +20,7 @@ function SearchResultsHeader() {
       </Typography>
       <TextField
         placeholder="Введите название задачи или организации"
-        variant="standard" // Use standard variant for the line style
+        variant="standard"
         fullWidth
         InputProps={{
           startAdornment: (
@@ -30,7 +30,12 @@ function SearchResultsHeader() {
               </IconButton>
             </InputAdornment>
           ),
-          disableUnderline: false, // Keeps the underline visible
+          disableUnderline: false,
+          sx: {
+            "& .MuiInputBase-input::placeholder": {
+              fontSize: "14px",
+            },
+          },
         }}
         sx={{
           maxWidth: "400px",
