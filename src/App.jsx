@@ -1,12 +1,12 @@
 import React from "react";
 
 import "react-toastify/dist/ReactToastify.css";
-import Login from "./pages/login.jsx";
+import ProfilePage from "./pages/profile1";
 
 function App() {
   return (
     <>
-      <Login />
+      <ProfilePage />
     </>
   );
 }
