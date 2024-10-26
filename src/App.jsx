@@ -13,7 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          {/*<Route path="/contact" element={<Contact />} />*/}
+          {/*<Route path="/help-request" element={<Contact />} />*/}
+
           {/*<Route path="*" element={<NotFound />} />*/}
         </Routes>
       </Layout>
