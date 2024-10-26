@@ -9,9 +9,8 @@ import {
 } from "@mui/material";
 import Button from "@mui/material/Button";
 
+import ProfileLogin from "../components/profile-login.jsx";
 import users from "../data/userData.jsx";
-
-import Profile from "./profile/profile.jsx";
 
 function Login() {
   return (
@@ -72,7 +71,7 @@ function Login() {
           Тестовые профили
         </Typography>
         {users.map((user) => (
-          <Profile
+          <ProfileLogin
             key={user.id}
             title={user.title}
             login={user.login}
