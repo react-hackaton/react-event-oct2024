@@ -6,6 +6,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Box, IconButton, Pagination, Typography } from "@mui/material";
 
 import requestCardData from "../../data/requestCardData.js";
+import RequestsNotFound from "../RequestNotFound.jsx";
 
 import RequestCard from "./index.jsx";
 
@@ -98,9 +99,13 @@ function RequestList({ searchTerm }) {
           justifyContent: "center",
         }}
       >
-        {currentItems.map((request) => (
-          <RequestCard key={request.id} request={request} />
-        ))}
+        {currentItems.length > 0 ? (
+          currentItems.map((request) => (
+            <RequestCard key={request.id} request={request} />
+          ))
+        ) : (
+          <RequestsNotFound />
+        )}
 
         {filteredData.length > ITEMS_PER_PAGE && (
           <Box
