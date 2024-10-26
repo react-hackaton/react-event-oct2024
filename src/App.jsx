@@ -6,6 +6,7 @@ import { Layout } from "./components/Layout";
 import LoginPage from "./pages/login";
 import ProfilePage from "./pages/profile";
 import Help from "./components/Help";
+import Error from "./components/Error";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/help-request" element={<Help />} />
+          <Route path="/no-load" element={<Error/>} />
 
           {/*<Route path="*" element={<NotFound />} />*/}
         </Routes>
