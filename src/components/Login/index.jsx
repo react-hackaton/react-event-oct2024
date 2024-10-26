@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Button from "@mui/material/Button";
 
-import users from "../../data/userData.jsx";
+import users from "../../data/userData.js";
 
 import ProfileLogin from "./profile-login.jsx";
 
