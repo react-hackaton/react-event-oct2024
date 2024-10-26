@@ -4,17 +4,14 @@ import GridViewIcon from "@mui/icons-material/GridView";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Box, IconButton, Typography } from "@mui/material";
 
-import RequestList from "../RequestCard/requestList.jsx";
-
-import FilterPanel from "./FilterPanel";
-import SearchResultsHeader from "./searchSection.jsx";
+import RequestList from "../../components/RequestCard/requestList.jsx";
+import FilterPanel from "../../components/Requests/filterPanel.jsx";
+import SearchResultsHeader from "../../components/Requests/searchSection.jsx";
 
 function Requests() {
   return (
     <Box
       sx={{
-        height: "100vh",
-        width: "100wh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
