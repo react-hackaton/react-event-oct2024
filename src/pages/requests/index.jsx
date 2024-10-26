@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
+import { ListAlt } from "@mui/icons-material";
 import GridViewIcon from "@mui/icons-material/GridView";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Box, IconButton, Typography } from "@mui/material";
@@ -9,26 +10,31 @@ import FilterPanel from "../../components/Requests/filterPanel.jsx";
 import SearchResultsHeader from "../../components/Requests/searchSection.jsx";
 
 function Requests() {
+  const [view, setView] = useState("grid");
+  const handleViewChange = (newView) => {
+    setView(newView);
+    console.log(`View changed to: ${newView}`);
+  };
   return (
     <Box
       sx={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          backgroundColor: "#F5F5F5"
+          backgroundColor: "#F5F5F5",
         }}
       >
         <Typography
           variant="h5"
           sx={{
             textAlign: "start",
-            padding: "40px"
+            padding: "40px",
           }}
         >
           Запросы о помощи
@@ -39,7 +45,7 @@ function Requests() {
             justifyContent: "center",
             alignItems: "start",
             margin: "0 auto",
-            paddingRight: "20px"
+            paddingRight: "20px",
           }}
         >
           {/* filter */}
@@ -53,7 +59,7 @@ function Requests() {
               display: "flex",
               flexDirection: "column",
               width: "100%",
-              maxWidth: "1060px"
+              maxWidth: "1060px",
             }}
           >
             <Box
@@ -61,7 +67,7 @@ function Requests() {
                 alignContent: "center",
                 backgroundColor: "#ffffff",
                 padding: "40px",
-                marginBottom: "25px"
+                marginBottom: "25px",
               }}
             >
               <SearchResultsHeader />
@@ -72,7 +78,7 @@ function Requests() {
                 display: "flex",
                 flexDirection: "column",
                 backgroundColor: "#ffffff",
-                marginBottom: "40px"
+                marginBottom: "40px",
               }}
             >
               <Box
@@ -81,7 +87,7 @@ function Requests() {
                   justifyContent: "space-between",
                   alignItems: "center",
                   width: "100%",
-                  paddingTop: "20px"
+                  paddingTop: "20px",
                   // paddingLeft: "20px",
                 }}
               >
@@ -89,22 +95,33 @@ function Requests() {
                   sx={{
                     fontSize: "14px",
                     fontWeight: "700",
-                    paddingLeft: "20px"
+                    paddingLeft: "20px",
                   }}
                 >
                   Найдено: 21
                 </Typography>
 
-                <Box sx={{
-                  paddingRight: "20px"
-                }}>
-                  <IconButton aria-label="grid view">
+                <Box
+                  sx={{
+                    paddingRight: "20px",
+                  }}
+                >
+                  <IconButton
+                    aria-label="grid view"
+                    onClick={() => handleViewChange("grid")}
+                  >
                     <GridViewIcon />
                   </IconButton>
-                  <IconButton aria-label="grid view">
-                    <GridViewIcon />
+                  <IconButton
+                    aria-label="grid view"
+                    onClick={() => handleViewChange("list")}
+                  >
+                    <ListAlt />
                   </IconButton>
-                  <IconButton aria-label="map view">
+                  <IconButton
+                    aria-label="map view"
+                    onClick={() => handleViewChange("map")}
+                  >
                     <LocationOnIcon />
                   </IconButton>
                 </Box>
@@ -112,7 +129,7 @@ function Requests() {
 
               <Box
                 sx={{
-                  display: "flex"
+                  display: "flex",
                 }}
               >
                 <RequestList />
