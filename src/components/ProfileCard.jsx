@@ -21,7 +21,7 @@ const ProfileCard = () => {
           </Stack>
         </Box>
 
-        <Button variant="outlined" fullWidth>Выйти из аккаунта</Button>
+        <Button variant="outlined" fullWidth color='inherit'>Выйти из аккаунта</Button>
       </Stack>
 
     </Card>);
