@@ -1,7 +1,7 @@
 import React from "react";
 
 import "react-toastify/dist/ReactToastify.css";
-import ProfilePage from "./pages/profile1";
+import ProfilePage from "./pages/profile";
 
 function App() {
   return (

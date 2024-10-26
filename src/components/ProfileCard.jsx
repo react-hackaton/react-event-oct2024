@@ -10,13 +10,14 @@ const ProfileCard = () => {
         alt="profile image"
         loading="lazy"
       />
-      <Stack direction="column" spacing={2} sx={{ height: "196px", p: 2, justifyContent: "space-between",
+      <Stack direction="column" spacing={2} sx={{
+        height: "196px", p: 2, justifyContent: "space-between"
       }}>
         <Box>
-          <Typography>Ангелина Фомина</Typography>
+          <Typography variant="h6">Ангелина Фомина</Typography>
           <Stack direction="row">
             <Typography variant="subtitle2">Статус:</Typography>
-            <Typography variant="caption">Начинающий</Typography>
+            <Typography>Начинающий</Typography>
           </Stack>
         </Box>
 
