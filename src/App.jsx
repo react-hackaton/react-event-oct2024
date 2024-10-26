@@ -1,4 +1,5 @@
 import React from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -13,9 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          {/*<Route path="/help-request" element={<Contact />} />*/}
+          {/* <Route path="/help-request" element={<Contact />} /> */}
 
-          {/*<Route path="*" element={<NotFound />} />*/}
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </Layout>
     </BrowserRouter>
