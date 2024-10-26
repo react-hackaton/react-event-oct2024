@@ -14,7 +14,7 @@ import users from "../../data/userData.js";
 
 import ProfileLogin from "./profile-login.jsx";
 
-function Index() {
+export function Login() {
   return (
     <Box
       sx={{
@@ -134,5 +134,3 @@ function Index() {
     </Box>
   );
 }
-
-export default Index;
