@@ -14,22 +14,21 @@ function Requests() {
       sx={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
       }}
     >
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          backgroundColor: "#F5F5F5",
+          backgroundColor: "#F5F5F5"
         }}
       >
         <Typography
           variant="h5"
           sx={{
             textAlign: "start",
-            marginLeft: "10px",
-            marginTop: "20px",
+            padding: "40px"
           }}
         >
           Запросы о помощи
@@ -38,12 +37,12 @@ function Requests() {
           sx={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            margin: "0 auto",
+            alignItems: "start",
+            margin: "0 auto"
           }}
         >
           {/* filter */}
-          <Box sx={{ display: "flex", padding: 2 }}>
+          <Box sx={{ display: "flex", padding: "0 20px" }}>
             <FilterPanel />
           </Box>
 
@@ -52,16 +51,15 @@ function Requests() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: "1060px",
+              width: "1060px"
             }}
           >
             <Box
               sx={{
                 alignContent: "center",
                 backgroundColor: "#ffffff",
-                padding: "20px",
-                height: "100px",
-                marginBottom: "45px",
+                padding: "40px",
+                marginBottom: "25px"
               }}
             >
               <SearchResultsHeader />
@@ -71,24 +69,24 @@ function Requests() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                height: "800px",
                 backgroundColor: "#ffffff",
+                marginBottom: "40px"
               }}
             >
               <Box
                 sx={{
-                  display: "git merge devflex",
+                  display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
                   width: "100%",
                   marginLeft: "20px",
-                  marginTop: "12px",
+                  marginTop: "12px"
                 }}
               >
                 <Typography
                   sx={{
                     fontSize: "14px",
-                    fontWeight: "700",
+                    fontWeight: "700"
                   }}
                 >
                   Найдено: 21
@@ -96,7 +94,7 @@ function Requests() {
 
                 <Box
                   sx={{
-                    marginRight: "20px",
+                    marginRight: "20px"
                   }}
                 >
                   <IconButton aria-label="grid view">
@@ -113,7 +111,7 @@ function Requests() {
 
               <Box
                 sx={{
-                  display: "flex",
+                  display: "flex"
                 }}
               >
                 <RequestList />

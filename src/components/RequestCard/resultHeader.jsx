@@ -19,7 +19,7 @@ function ResultsHeader() {
       }}
     >
       {/* Found Items Count */}
-      <Typography variant="body1">Найдено: 21</Typography>
+      <Typography variant="body1">Найдено: 211</Typography>
 
       {/* View Options */}
       <Box>

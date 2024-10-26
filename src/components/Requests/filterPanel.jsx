@@ -13,7 +13,7 @@ function FilterPanel() {
     <Box
       sx={{
         width: "290px",
-        height: "947px",
+        // height: "947px",
         padding: "20px",
         backgroundColor: "#ffffff"
       }}
