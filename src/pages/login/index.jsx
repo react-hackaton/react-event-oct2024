@@ -18,7 +18,7 @@ function LoginPage() {
   return (
     <Box
       sx={{
-        height: "750px",
+        height: "100vh",
         width: "100%",
         display: "flex",
         justifyContent: "space-between",
