@@ -1,30 +1,28 @@
-import React from "react";
-
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, Button, Typography } from "@mui/material";
+import HeaderImg from "../../../assets/_IconButton_.svg";
 
-export function Header() {
+function Header() {
   return (
     <Box
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height={84}
-      padding="10px"
       sx={{
         boxShadow: "0px 3px 1px -2px rgba(0, 0, 0, 0.2)",
+        height: "84px"
       }}
     >
       <Box
         display="flex"
         alignItems="center"
         justifyContent="space-between"
-        height={64}
-        width={1500}
-        padding="10px"
+        width="100%"
       >
-        {/* <Logo /> */}
-        <Typography>Logo</Typography>
+        <img src={HeaderImg}
+             alt="header image"
+             loading="lazy" />
+
         <Typography>Запросы о помощи</Typography>
         <Button
           variant="outlined"
@@ -37,3 +35,5 @@ export function Header() {
     </Box>
   );
 }
+
+export default Header;
