@@ -207,9 +207,7 @@ function RequestCard({ request }) {
       </Box>
 
       <Typography variant="caption" color="textSecondary" mt={1}>
-        {contributorsCount.toString()
-          ? `Нас уже: ${contributorsCount.toString()}`
-          : 'Вы будете первым'}
+        {contributorsCount !== 0 ? `Нас уже: ${contributorsCount.toString()}` : 'Вы будете первым'}
       </Typography>
 
       <Button variant="contained" color="primary" fullWidth sx={{ borderRadius: '4px', mt: 2 }}>
