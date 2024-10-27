@@ -6,31 +6,38 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Box, IconButton, Pagination, Typography } from '@mui/material';
 
 import { fetchRequests } from '../../api/request.js';
+import Error from '../Error.jsx';
 import RequestsNotFound from '../RequestNotFound.jsx';
 
 import RequestCard from './index.jsx';
 
 const ITEMS_PER_PAGE = 3;
 
+function ErrorPage() {
+  return null;
+}
+
 function RequestList({ searchTerm }) {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   // eslint-disable-next-line no-param-reassign
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const fetchedData = await fetchRequests();
-        console.log(fetchedData);
+
         if (Array.isArray(fetchedData)) {
           setData(fetchedData);
         } else {
           setData([]);
         }
         setLoading(false);
-      } catch (error) {
+      } catch (err) {
         console.error('Error fetching data:', error);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -61,8 +68,23 @@ function RequestList({ searchTerm }) {
   // eslint-disable-next-line no-param-reassign
   const handleViewChange = (newView) => {
     setView(newView);
-    console.log(`View changed to: ${newView}`);
   };
+
+  if (loading) {
+    return <Typography>Loading...</Typography>;
+  }
+
+  if (error) {
+    return (
+      <Box
+        sx={{
+          marginLeft: '250px',
+        }}
+      >
+        <Error />
+      </Box>
+    );
+  }
 
   return (
     <Box>

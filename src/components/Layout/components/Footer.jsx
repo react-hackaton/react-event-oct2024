@@ -19,7 +19,8 @@ export default function Footer() {
           <Link
             href="https://t.me/natti_jun_front/239"
             target="_blank"
-            sx={{ textDecoration: 'none', color: '#000000' }}>
+            sx={{ textDecoration: 'none', color: '#000000' }}
+          >
             Об ивенте
           </Link>
         </Typography>
@@ -27,7 +28,8 @@ export default function Footer() {
           <Link
             href="https://github.com/side-progects/react-event-oct2024"
             target="_blank"
-            sx={{ textDecoration: 'none', color: '#000000' }}>
+            sx={{ textDecoration: 'none', color: '#000000' }}
+          >
             GitHub проекта
           </Link>
         </Typography>
@@ -35,7 +37,8 @@ export default function Footer() {
           <Link
             href="https://t.me/natti_jun_front_chat"
             target="_blank"
-            sx={{ textDecoration: 'none', color: '#000000' }}>
+            sx={{ textDecoration: 'none', color: '#000000' }}
+          >
             Чат для джунов
           </Link>
         </Typography>

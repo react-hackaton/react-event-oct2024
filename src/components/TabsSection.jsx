@@ -29,7 +29,7 @@ function a11yProps(index) {
   };
 }
 
-const TabsSection = () => {
+const TabsSection = ({ userData }) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -46,13 +46,13 @@ const TabsSection = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Personaldata />
+        <Personaldata userData={userData} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Contacts />
+        <Contacts userData={userData} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <FavouritesCards />
       </TabPanel>
     </Box>
   );
