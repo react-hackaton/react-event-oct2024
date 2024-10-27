@@ -4,12 +4,13 @@ import { AuthProvider } from './context/AuthContext';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { Layout } from './components/Layout';
-import Help from './pages/help/index';
+import Help from './components/help/index';
 import LoginPage from './pages/login';
 import ProfilePage from './pages/profile';
 import Requests from './pages/requests';
 import ProtectedRoute from './components/ProtectedRoute';
 import PublicRoute from './components/PublicRoute';
+import HelpRequest from './pages/helpRequest';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/help-request" element={<Help />} />
               <Route path="/requests" element={<Requests />} />
+
+
+              <Route path="help1" element={<HelpRequest/>}/>
             </Route>
 
             {/*<Route path="*" element={<NotFound />} />*/}
