@@ -1,27 +1,27 @@
-import React from "react";
+import React from 'react';
 
-import { Box, Typography, List, ListItem } from "@mui/material";
+import { Box, Typography, List, ListItem } from '@mui/material';
 
 export function Contacts({ userInfo }) {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
+        display: 'flex',
+        flexDirection: 'column',
         width: 260,
-        justifyContent: "space-between",
+        justifyContent: 'space-between',
         marginTop: 30,
       }}
     >
       <Box>
         <Typography
           sx={{
-            fontFamily: "Roboto",
+            fontFamily: 'Roboto',
             fontSize: 20,
             fontWeight: 500,
             lineHeight: 32,
             letterSpacing: 0.15000000596046448,
-            textAlign: "left",
+            textAlign: 'left',
             marginBottom: 10,
           }}
         >
@@ -29,12 +29,12 @@ export function Contacts({ userInfo }) {
         </Typography>
         <Typography
           sx={{
-            fontFamily: "Roboto",
+            fontFamily: 'Roboto',
             fontSize: 14,
             fontWeight: 400,
             lineHeight: 20.02,
             letterSpacing: 0.17000000178813934,
-            textAlign: "left",
+            textAlign: 'left',
           }}
         >
           {userInfo.email}
@@ -43,12 +43,12 @@ export function Contacts({ userInfo }) {
       <Box>
         <Typography
           sx={{
-            fontFamily: "Roboto",
+            fontFamily: 'Roboto',
             fontSize: 20,
             fontWeight: 500,
             lineHeight: 32,
             letterSpacing: 0.15000000596046448,
-            textAlign: "left",
+            textAlign: 'left',
             marginBottom: 10,
           }}
         >
@@ -56,12 +56,12 @@ export function Contacts({ userInfo }) {
         </Typography>
         <Typography
           sx={{
-            fontFamily: "Roboto",
+            fontFamily: 'Roboto',
             fontSize: 14,
             fontWeight: 400,
             lineHeight: 20.02,
             letterSpacing: 0.17000000178813934,
-            textAlign: "left",
+            textAlign: 'left',
           }}
         >
           {userInfo.telephone}
@@ -69,19 +69,19 @@ export function Contacts({ userInfo }) {
       </Box>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
         }}
       >
         <Typography
           sx={{
-            fontFamily: "Roboto",
+            fontFamily: 'Roboto',
             fontSize: 20,
             fontWeight: 500,
             lineHeight: 32,
             letterSpacing: 0.15000000596046448,
-            textAlign: "left",
+            textAlign: 'left',
             marginBottom: 10,
           }}
         >
@@ -96,12 +96,12 @@ export function Contacts({ userInfo }) {
             <a href={userInfo.socials.vk}>
               <Typography
                 sx={{
-                  fontFamily: "Roboto",
+                  fontFamily: 'Roboto',
                   fontSize: 20,
                   fontWeight: 500,
                   lineHeight: 32,
                   letterSpacing: 0.15000000596046448,
-                  textAlign: "left",
+                  textAlign: 'left',
                   marginLeft: 32,
                 }}
               >
@@ -114,12 +114,12 @@ export function Contacts({ userInfo }) {
               <img src="telegram.png" alt="Значок ТГ" />
               <Typography
                 sx={{
-                  fontFamily: "Roboto",
+                  fontFamily: 'Roboto',
                   fontSize: 20,
                   fontWeight: 500,
                   lineHeight: 32,
                   letterSpacing: 0.15000000596046448,
-                  textAlign: "left",
+                  textAlign: 'left',
                 }}
               >
                 Telegram
@@ -131,12 +131,12 @@ export function Contacts({ userInfo }) {
               <img src="whatsapp.png" alt="Значок Ватсапп" />
               <Typography
                 sx={{
-                  fontFamily: "Roboto",
+                  fontFamily: 'Roboto',
                   fontSize: 20,
                   fontWeight: 500,
                   lineHeight: 32,
                   letterSpacing: 0.15000000596046448,
-                  textAlign: "left",
+                  textAlign: 'left',
                 }}
               >
                 WhatsApp
