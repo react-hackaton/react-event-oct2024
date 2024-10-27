@@ -1,6 +1,6 @@
-import { Container, Typography, Grid2, Box, Paper } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import ProfileCard from "../../components/ProfileCard.jsx";
-import Personaldata from "../../components/Personaldata.jsx";
+import TabsSection from "../../components/TabsSection.jsx";
 
 const ProfilePage = () => {
   return (
@@ -12,7 +12,7 @@ const ProfilePage = () => {
           <ProfileCard />
         </Box>
         <Box sx={{ width: "1080px" }}>
-          <Personaldata />
+          <TabsSection />
         </Box>
       </Box>
     </Box>
