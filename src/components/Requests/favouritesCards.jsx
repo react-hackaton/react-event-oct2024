@@ -5,7 +5,7 @@ import { Box, Pagination, Typography } from '@mui/material';
 import { fetchRequestById, getFromFavorites } from '../../api/request.js';
 import Error from '../Error.jsx';
 import ErrorNotFound from '../ErrorNotFound.jsx';
-import RequestCard from '../RequestCard/index.jsx';
+import FavouriteCard from '../RequestCard/favCard.jsx';
 
 const ITEMS_PER_PAGE = 3;
 
@@ -75,7 +75,7 @@ function FavouritesCards() {
         }}
       >
         {currentItems.map((request) => {
-          return <RequestCard key={request.id} request={request} />;
+          return <FavouriteCard key={request.id} request={request} />;
         })}
       </Box>
       {totalPages > 1 && (
