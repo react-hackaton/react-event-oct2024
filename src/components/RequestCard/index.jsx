@@ -4,10 +4,8 @@ import { Star, StarBorder } from '@mui/icons-material';
 import { Box, Button, Divider, IconButton, LinearProgress, Paper, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
 
-import { addToFavorites } from '../../api/request.js';
+import { addToFavorites, removeFromFavorites } from '../../api/request.js';
 import defaultImage from '../../assets/requestCard1.png';
-
-import { removeBracketNumbers } from '../../utils';
 
 function RequestCard({ request }) {
   const {
@@ -22,8 +20,6 @@ function RequestCard({ request }) {
     goalDescription,
   } = request;
 
-  const updatedTitle = removeBracketNumbers(title);
-
   const progress =
     requestGoal && requestGoalCurrentValue ? (requestGoal / requestGoalCurrentValue) * 100 : 0;
 
@@ -31,14 +27,16 @@ function RequestCard({ request }) {
 
   const handleFavoriteClick = async () => {
     try {
-      await addToFavorites({ requestId: id });
-
-      setIsFavorited(!isFavorited);
       if (!isFavorited) {
+        await addToFavorites(id);
+        console.log('added ', id);
         toast.success('Added to favorites!');
       } else {
+        await removeFromFavorites(id);
+        console.log('deleted', id);
         toast.info('Removed from favorites.');
       }
+      setIsFavorited(!isFavorited);
     } catch (error) {
       toast.error('Error updating favorite.');
     }
@@ -85,7 +83,7 @@ function RequestCard({ request }) {
             height: '70px',
           }}
         >
-          {updatedTitle}
+          {title ? title.replace(/^\[\d+\]\s*/, '') : ''}
         </Typography>
         <IconButton aria-label="favorite" onClick={handleFavoriteClick}>
           {isFavorited ? <Star sx={{ color: 'gold' }} /> : <StarBorder />}
@@ -211,9 +209,7 @@ function RequestCard({ request }) {
       </Box>
 
       <Typography variant="caption" color="textSecondary" mt={1}>
-        {contributorsCount.toString()
-          ? `Нас уже: ${contributorsCount.toString()}`
-          : 'Вы будете первым'}
+        {contributorsCount !== 0 ? `Нас уже: ${contributorsCount.toString()}` : 'Вы будете первым'}
       </Typography>
 
       <Button variant="contained" color="primary" fullWidth sx={{ borderRadius: '4px', mt: 2 }}>

@@ -1,5 +1,10 @@
 import React from 'react';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+
+import ProtectedRoute from './components/ProtectedRoute';
+import PublicRoute from './components/PublicRoute';
 import { AuthProvider } from './context/AuthContext';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,8 +13,6 @@ import Help from './pages/help/index';
 import LoginPage from './pages/login';
 import ProfilePage from './pages/profile';
 import Requests from './pages/requests';
-import ProtectedRoute from './components/ProtectedRoute';
-import PublicRoute from './components/PublicRoute';
 
 function App() {
   return (
@@ -26,9 +29,21 @@ function App() {
               <Route path="/help-request" element={<Help />} />
               <Route path="/requests" element={<Requests />} />
             </Route>
-
-            {/*<Route path="*" element={<NotFound />} />*/}
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
+
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
         </Layout>
       </AuthProvider>
     </BrowserRouter>
