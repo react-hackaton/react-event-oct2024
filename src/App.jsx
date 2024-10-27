@@ -8,7 +8,8 @@ import Help from "./pages/help/index";
 import LoginPage from "./pages/login";
 import ProfilePage from "./pages/profile";
 import Requests from "./pages/requests";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PublicRoute from "./components/PublicRoute";
 
 function App() {
   return (
@@ -16,8 +17,10 @@ function App() {
       <AuthProvider>
         <Layout>
           <Routes>
-            <Route path="/" element={<LoginPage />} />
-            {/* Защищенные маршруты */}
+            <Route element={<PublicRoute />}>
+              <Route path="/" element={<LoginPage />} />
+            </Route>
+
             <Route element={<ProtectedRoute />}>
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/help-request" element={<Help />} />

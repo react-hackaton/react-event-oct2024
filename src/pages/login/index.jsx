@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
   IconButton,
   InputAdornment,
   TextField,
-  Typography,
+  Typography
 } from "@mui/material";
 import Button from "@mui/material/Button";
 import { toast, ToastContainer } from "react-toastify";
@@ -15,13 +15,21 @@ import users from "../../data/userData.js";
 import ProfileLogin from "./profileLogin.jsx";
 
 function LoginPage() {
-  const { login, isLoading } = useAuth();
+  const { currentUser, login, isLoading } = useAuth();
+  const navigate = useNavigate();
+
   const [loginValue, setLoginValue] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const [loginError, setLoginError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/profile", { replace: true });
+    }
+  }, [currentUser, navigate]);
 
   const validateLogin = () => {
     if (!loginValue) {
@@ -65,7 +73,7 @@ function LoginPage() {
         width: "100%",
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <ToastContainer position="bottom-right" />
@@ -74,7 +82,7 @@ function LoginPage() {
         width="50%"
         height="100%"
         sx={{
-          paddingLeft: "40px",
+          paddingLeft: "40px"
         }}
       >
         <Typography variant="h4" sx={{ mt: 8, mr: 5, textAlign: "left" }}>
@@ -125,7 +133,7 @@ function LoginPage() {
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
-              ),
+              )
             }}
           />
           <Button
@@ -148,7 +156,7 @@ function LoginPage() {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-          paddingLeft: "40px",
+          paddingLeft: "40px"
         }}
       >
         <Typography
@@ -162,7 +170,7 @@ function LoginPage() {
             display: "flex",
             flexDirection: "column",
             gap: "30px",
-            overflowY: "auto",
+            overflowY: "auto"
           }}
         >
           {users.map((user) => (

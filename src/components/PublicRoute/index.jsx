@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext.jsx";
 
- const ProtectedRoute = () => {
+const PublicRoute = () => {
   const { currentUser, isLoading } = useAuth();
 
   if (isLoading) {
@@ -17,11 +17,11 @@ import { useAuth } from "../context/AuthContext";
     );
   }
 
-  if (!currentUser) {
-    return <Navigate to="/" replace />;
+  if (currentUser) {
+    return <Navigate to="/profile" replace />;
   }
 
   return <Outlet />;
 };
 
-export default ProtectedRoute;
+export default PublicRoute;
