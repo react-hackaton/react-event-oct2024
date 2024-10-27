@@ -4,7 +4,7 @@ import { Star, StarBorder } from '@mui/icons-material';
 import { Box, Button, Divider, IconButton, LinearProgress, Paper, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
 
-import { addToFavorites } from '../../api/request.js';
+import { addToFavorites, removeFromFavorites } from '../../api/request.js';
 import defaultImage from '../../assets/requestCard1.png';
 
 function RequestCard({ request }) {
@@ -27,14 +27,16 @@ function RequestCard({ request }) {
 
   const handleFavoriteClick = async () => {
     try {
-      await addToFavorites({ requestId: id });
-
-      setIsFavorited(!isFavorited);
       if (!isFavorited) {
+        await addToFavorites(id);
+        console.log('added ', id);
         toast.success('Added to favorites!');
       } else {
+        await removeFromFavorites(id);
+        console.log('deleted', id);
         toast.info('Removed from favorites.');
       }
+      setIsFavorited(!isFavorited);
     } catch (error) {
       toast.error('Error updating favorite.');
     }
