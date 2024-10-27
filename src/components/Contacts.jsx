@@ -1,20 +1,20 @@
-import { Typography, List, ListItem, Box, Stack } from "@mui/material";
+import { Typography, List, ListItem, Box, Stack } from '@mui/material';
 
 function Contacts({ userInfo }) {
   return (
     <Stack
       sx={{
-        height: "982px",
+        height: '982px',
       }}
     >
       <Stack
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          width: "260px",
-          height: "334px",
-          justifyContent: "flex-start",
-          alignItems: "stretch",
+          display: 'flex',
+          flexDirection: 'column',
+          width: '260px',
+          height: '334px',
+          justifyContent: 'flex-start',
+          alignItems: 'stretch',
           m: 0,
           p: 0,
           pt: 0,
@@ -24,15 +24,15 @@ function Contacts({ userInfo }) {
           sx={{
             m: 0,
             p: 0,
-            height: "62px",
+            height: '62px',
           }}
         >
           <Typography
             sx={{
-              fontSize: "20px",
-              fontWeight: "Normal",
-              textAlign: "left",
-              height: "32px",
+              fontSize: '20px',
+              fontWeight: 'Normal',
+              textAlign: 'left',
+              height: '32px',
             }}
           >
             E-mail
@@ -40,10 +40,10 @@ function Contacts({ userInfo }) {
           <Typography
             sx={{
               fontSize: 14,
-              fontWeight: "Normal",
-              letterSpacing: "0.17000000178813934px",
-              textAlign: "left",
-              height: "20x",
+              fontWeight: 'Normal',
+              letterSpacing: '0.17000000178813934px',
+              textAlign: 'left',
+              height: '20x',
             }}
           >
             {/* {userInfo.email} */}
@@ -52,29 +52,29 @@ function Contacts({ userInfo }) {
         </Stack>
         <Box
           sx={{
-            height: "62px",
-            marginTop: "30px",
+            height: '62px',
+            marginTop: '30px',
           }}
         >
           <Typography
             sx={{
-              fontSize: "20px",
-              fontWeight: "Normal",
-              letterSpacing: "0.15000000596046448px",
-              textAlign: "left",
-              marginBottom: "10px",
-              height: "32px",
+              fontSize: '20px',
+              fontWeight: 'Normal',
+              letterSpacing: '0.15000000596046448px',
+              textAlign: 'left',
+              marginBottom: '10px',
+              height: '32px',
             }}
           >
             Телефон
           </Typography>
           <Typography
             sx={{
-              fontSize: "14px",
-              fontWeight: "Normal",
-              letterSpacing: "0.17000000178813934px",
-              textAlign: "left",
-              height: "20px",
+              fontSize: '14px',
+              fontWeight: 'Normal',
+              letterSpacing: '0.17000000178813934px',
+              textAlign: 'left',
+              height: '20px',
             }}
           >
             {/* {userInfo.telephone} */}
@@ -83,20 +83,20 @@ function Contacts({ userInfo }) {
         </Box>
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            height: "62px",
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '62px',
           }}
         >
           <Typography
             sx={{
-              fontSize: "20px",
-              fontWeight: "Normal",
-              letterSpacing: "0.15000000596046448px",
-              textAlign: "left",
-              height: "32px",
-              marginTop: "30px",
+              fontSize: '20px',
+              fontWeight: 'Normal',
+              letterSpacing: '0.15000000596046448px',
+              textAlign: 'left',
+              height: '32px',
+              marginTop: '30px',
             }}
           >
             Социальные сети
@@ -104,12 +104,12 @@ function Contacts({ userInfo }) {
 
           <List
             sx={{
-              height: "108px",
+              height: '108px',
             }}
           >
             <ListItem
               sx={{
-                height: "36px",
+                height: '36px',
                 m: 0,
                 p: 0,
               }}
@@ -118,23 +118,19 @@ function Contacts({ userInfo }) {
               <a
                 href="#"
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  height: "24px",
+                  display: 'flex',
+                  alignItems: 'center',
+                  height: '24px',
                 }}
               >
-                <img
-                  src="src/assets/vk.jpg"
-                  alt="Значок ВК"
-                  style={{ height: "24px" }}
-                />
+                <img src="src/assets/vk.jpg" alt="Значок ВК" style={{ height: '24px' }} />
                 <Typography
                   sx={{
-                    fontSize: "20px",
-                    letterSpacing: "0.15000000596046448px",
-                    textAlign: "left",
-                    height: "32px",
-                    marginLeft: "32px",
+                    fontSize: '20px',
+                    letterSpacing: '0.15000000596046448px',
+                    textAlign: 'left',
+                    height: '32px',
+                    marginLeft: '32px',
                   }}
                 >
                   Vkontakte
@@ -144,26 +140,22 @@ function Contacts({ userInfo }) {
 
             <ListItem
               sx={{
-                height: "36px",
+                height: '36px',
                 m: 0,
                 p: 0,
               }}
             >
               {/* <a href={userInfo.socials.telegram} style={{ display: "flex", alignItems: "center" }}> */}
-              <a href="#" style={{ display: "flex", alignItems: "center" }}>
-                <img
-                  src="src/assets/telegram.png"
-                  alt="Значок ТГ"
-                  style={{ height: "24px" }}
-                />
+              <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
+                <img src="src/assets/telegram.png" alt="Значок ТГ" style={{ height: '24px' }} />
                 <Typography
                   sx={{
-                    fontSize: "20px",
+                    fontSize: '20px',
                     fontWeight: 500,
-                    letterSpacing: "0.15000000596046448px",
-                    textAlign: "left",
-                    marginLeft: "32px",
-                    height: "32px",
+                    letterSpacing: '0.15000000596046448px',
+                    textAlign: 'left',
+                    marginLeft: '32px',
+                    height: '32px',
                   }}
                 >
                   Telegram
@@ -173,7 +165,7 @@ function Contacts({ userInfo }) {
 
             <ListItem
               sx={{
-                height: "36px",
+                height: '36px',
                 m: 0,
                 p: 0,
               }}
@@ -182,23 +174,23 @@ function Contacts({ userInfo }) {
               <a
                 href="#"
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  height: "24px",
+                  display: 'flex',
+                  alignItems: 'center',
+                  height: '24px',
                 }}
               >
                 <img
                   src="src/assets/whatsapp.png"
                   alt="Значок Ватсапп"
-                  style={{ height: "24px" }}
+                  style={{ height: '24px' }}
                 />
                 <Typography
                   sx={{
-                    fontSize: "20px",
-                    letterSpacing: "0.15000000596046448px",
-                    textAlign: "left",
-                    marginLeft: "32px",
-                    height: "32px",
+                    fontSize: '20px',
+                    letterSpacing: '0.15000000596046448px',
+                    textAlign: 'left',
+                    marginLeft: '32px',
+                    height: '32px',
                   }}
                 >
                   WhatsApp
