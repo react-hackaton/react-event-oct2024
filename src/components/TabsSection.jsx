@@ -29,7 +29,7 @@ function a11yProps(index) {
   };
 }
 
-const TabsSection = () => {
+const TabsSection = ({ userData }) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -41,15 +41,15 @@ const TabsSection = () => {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Личные данные" {...a11yProps(0)} />
-          <Tab label="Контакты" {...a11yProps(1)} />
+          <Tab label="Контакты"  {...a11yProps(1)} />
           <Tab label="Избранное" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Personaldata />
+        <Personaldata userData={userData} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Contacts />
+        <Contacts userData={userData} />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
