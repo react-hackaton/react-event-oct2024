@@ -15,6 +15,7 @@ const ITEMS_PER_PAGE = 3;
 function RequestList({ searchTerm }) {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
+  // eslint-disable-next-line no-param-reassign
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -57,6 +58,7 @@ function RequestList({ searchTerm }) {
     setPage(1);
   }, [searchTerm]);
 
+  // eslint-disable-next-line no-param-reassign
   const handleViewChange = (newView) => {
     setView(newView);
     console.log(`View changed to: ${newView}`);

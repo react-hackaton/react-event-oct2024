@@ -7,13 +7,7 @@ import FilterPanel from '../../components/Requests/filterPanel.jsx';
 import SearchResultsHeader from '../../components/Requests/searchSection.jsx';
 
 function Requests() {
-  // const [view, setView] = useState("grid");
   const [searchWord, setSearchWord] = useState('');
-
-  // const handleViewChange = (newView) => {
-  //   setView(newView);
-  //   console.log(`View changed to: ${newView}`);
-  // };
 
   const handleSearchChange = (event) => {
     setSearchWord(event.target.value);
