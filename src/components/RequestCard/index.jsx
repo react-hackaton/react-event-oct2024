@@ -61,7 +61,7 @@ function RequestCard({ request }) {
             overflow: "hidden",
             WebkitLineClamp: 3,
             lineClamp: 3,
-            height: "65px",
+            height: "70px",
           }}
         >
           {title}
