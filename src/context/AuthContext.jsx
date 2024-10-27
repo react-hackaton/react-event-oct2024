@@ -1,28 +1,44 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import users from "../data/userData";
+import { authAPI } from '../api/auth';
 
 const AuthContext = createContext(null);
 
-const AUTH_STORAGE_KEY = "authUser";
-
+const TOKEN_KEY = 'token';
+const USER_KEY = 'authUser';
+const TOKEN_EXPIRY = 60 * 60 * 1000; // 1 час в миллисекундах
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
+  // Проверка срока действия токена
+  const isTokenExpired = () => {
+    const tokenTimestamp = localStorage.getItem('tokenTimestamp');
+    if (!tokenTimestamp) return true;
+    return Date.now() - parseInt(tokenTimestamp) > TOKEN_EXPIRY;
+  };
+
+  // Восстановление сессии при загрузке
   useEffect(() => {
     const restoreSession = () => {
       try {
-        const savedUser = localStorage.getItem(AUTH_STORAGE_KEY);
-        if (savedUser) {
+        const token = localStorage.getItem(TOKEN_KEY);
+        const savedUser = localStorage.getItem(USER_KEY);
+
+        if (token && savedUser && !isTokenExpired()) {
           setCurrentUser(JSON.parse(savedUser));
+        } else {
+          // Если токен истек, очищаем хранилище
+          localStorage.removeItem(TOKEN_KEY);
+          localStorage.removeItem(USER_KEY);
+          localStorage.removeItem('tokenTimestamp');
         }
       } catch (error) {
-        console.error("Ошибка восстановления сессии:", error);
-        localStorage.removeItem(AUTH_STORAGE_KEY);
+        console.error('Ошибка восстановления сессии:', error);
+        localStorage.clear();
       } finally {
         setIsLoading(false);
       }
@@ -34,27 +50,43 @@ export const AuthProvider = ({ children }) => {
   const login = async (loginValue, passwordValue) => {
     setIsLoading(true);
     try {
-      // Имитация API запроса
-      const response = await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          const user = users.find(
-            (u) => u.login === loginValue && u.password === passwordValue
-          );
-          if (user) {
-            resolve(user);
-          } else {
-            reject(new Error("Неверный логин или пароль"));
-          }
-        }, 1000);
-      });
+      const { auth, token } = await authAPI.login(loginValue, passwordValue);
 
-      setCurrentUser(response);
-      localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(response));
-      navigate("/requests");
-      toast.success("Вы успешно вошли в систему");
-      return true;
+      if (auth && token) {
+        // Сохраняем JWT токен
+        localStorage.setItem(TOKEN_KEY, token);
+        localStorage.setItem('tokenTimestamp', Date.now().toString());
+
+        // Создаем объект пользователя
+        const userData = {
+          login: loginValue,
+        };
+
+        setCurrentUser(userData);
+        localStorage.setItem(USER_KEY, JSON.stringify(userData));
+
+        navigate("/profile");
+        toast.success("Вы успешно вошли в систему");
+        return true;
+      }
+      return false;
     } catch (error) {
-      toast.error(error.message);
+      let errorMessage = "Произошла ошибка при входе";
+
+      if (error.response) {
+        switch (error.response.status) {
+          case 400:
+            errorMessage = "Неверный логин или пароль";
+            break;
+          case 500:
+            errorMessage = "Сервер временно недоступен";
+            break;
+          default:
+            errorMessage = "Ошибка авторизации";
+        }
+      }
+
+      toast.error(errorMessage);
       return false;
     } finally {
       setIsLoading(false);
@@ -63,24 +95,12 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setCurrentUser(null);
-    localStorage.removeItem(AUTH_STORAGE_KEY);
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
+    localStorage.removeItem('tokenTimestamp');
     navigate("/");
     toast.success("Вы успешно вышли из системы");
   };
-
-  if (isLoading) {
-    // Можно добавить компонент загрузки
-    return (
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh"
-      }}>
-        Загрузка...
-      </div>
-    );
-  }
 
   return (
     <AuthContext.Provider value={{ currentUser, login, logout, isLoading }}>
