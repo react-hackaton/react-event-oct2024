@@ -13,6 +13,7 @@ import { useAuth } from "../../context/AuthContext";
 
 import users from "../../data/userData.js";
 import ProfileLogin from "./profileLogin.jsx";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const { currentUser, login, isLoading } = useAuth();
