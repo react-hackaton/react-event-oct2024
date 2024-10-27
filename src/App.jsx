@@ -23,7 +23,7 @@ function App() {
               <Route path="/" element={<LoginPage />} />
             </Route>
 
-            <Route>
+            <Route element={<ProtectedRoute />}>
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/help-request" element={<Help />} />
               <Route path="/requests" element={<Requests />} />
