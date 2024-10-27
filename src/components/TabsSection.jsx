@@ -52,7 +52,7 @@ const TabsSection = ({ userData }) => {
         <Contacts userData={userData} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <FavouritesCards />
       </TabPanel>
     </Box>
   );
