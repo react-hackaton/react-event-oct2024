@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { Star, StarBorder } from '@mui/icons-material';
-import { Box, Typography, Paper, Button, Divider, IconButton, LinearProgress } from '@mui/material';
+import { Box, Button, Divider, IconButton, LinearProgress, Paper, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
 
-import { addToFavorites } from '../../api/request.js';
+import { addToFavorites, removeFromFavorites } from '../../api/request.js';
 import defaultImage from '../../assets/requestCard1.png';
 
 function RequestCard({ request }) {
@@ -17,30 +17,33 @@ function RequestCard({ request }) {
     requestGoalCurrentValue,
     endingDate,
     contributorsCount,
+    goalDescription,
   } = request;
 
-  // const {region = "Неизвестно", city = "Неизвестно"} = location;
-  // const {amount = "0", target = "0", contributorsCount = 0} = collected;
-  const progress = (requestGoalCurrentValue / requestGoal) * 100;
+  const progress =
+    requestGoal && requestGoalCurrentValue ? (requestGoal / requestGoalCurrentValue) * 100 : 0;
 
   const [isFavorited, setIsFavorited] = useState(false);
 
   const handleFavoriteClick = async () => {
     try {
-      await addToFavorites({ requestId: id });
-
-      setIsFavorited(!isFavorited);
       if (!isFavorited) {
+        await addToFavorites(id);
+        console.log('added ', id);
         toast.success('Added to favorites!');
       } else {
+        await removeFromFavorites(id);
+        console.log('deleted', id);
         toast.info('Removed from favorites.');
       }
+      setIsFavorited(!isFavorited);
     } catch (error) {
       toast.error('Error updating favorite.');
     }
   };
 
   const imageUrl = defaultImage;
+  const formattedDate = new Date(endingDate).toLocaleDateString('en-GB');
 
   return (
     <Paper
@@ -80,7 +83,7 @@ function RequestCard({ request }) {
             height: '70px',
           }}
         >
-          {title}
+          {title ? title.replace(/^\[\d+\]\s*/, '') : ''}
         </Typography>
         <IconButton aria-label="favorite" onClick={handleFavoriteClick}>
           {isFavorited ? <Star sx={{ color: 'gold' }} /> : <StarBorder />}
@@ -136,7 +139,7 @@ function RequestCard({ request }) {
         >
           Цель сбора
         </Typography>
-        <Typography variant="body2">{requestGoal}</Typography>
+        <Typography variant="body2">{goalDescription}</Typography>
       </Box>
 
       <Box>
@@ -148,7 +151,7 @@ function RequestCard({ request }) {
         >
           Завершение
         </Typography>
-        <Typography variant="body2">{endingDate}</Typography>
+        <Typography variant="body2">{formattedDate}</Typography>
       </Box>
 
       <Box mt={2}>
@@ -189,7 +192,7 @@ function RequestCard({ request }) {
               transform: 'translateY(50%)',
             }}
           >
-            {requestGoalCurrentValue.toString()} руб
+            {requestGoal.toString()} руб
           </Typography>
           <Typography
             sx={{
@@ -206,9 +209,7 @@ function RequestCard({ request }) {
       </Box>
 
       <Typography variant="caption" color="textSecondary" mt={1}>
-        {contributorsCount.toString()
-          ? `Нас уже: ${contributorsCount.toString()}`
-          : 'Вы будете первым'}
+        {contributorsCount !== 0 ? `Нас уже: ${contributorsCount.toString()}` : 'Вы будете первым'}
       </Typography>
 
       <Button variant="contained" color="primary" fullWidth sx={{ borderRadius: '4px', mt: 2 }}>

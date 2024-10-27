@@ -1,15 +1,8 @@
-import axios from 'axios';
-
-const request = axios.create({
-  baseURL: 'https://natticharity.eveloth.ru/api',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+import api from './axios.js';
 
 export const fetchRequests = async () => {
   try {
-    const response = await request.get('/request');
+    const response = await api.get('/request');
     return response.data;
   } catch (error) {
     console.error('Error fetching requests:', error);
@@ -19,21 +12,18 @@ export const fetchRequests = async () => {
 
 export const addToFavorites = async (requestId) => {
   try {
-    await request.post('/user/favourites', { requestId });
+    await api.post('/user/favourites', { requestId });
   } catch (error) {
     console.error('Error adding to favorites: error', error);
     throw error;
   }
 };
-//
-//
-// export const removeFromFavorites = async (requestId) => {
-//     try {
-//         await request.delete(`/user/favorites/${requestId}`);
-//     } catch (error) {
-//         console.error("Error removing from favorites:", error);
-//         throw error;
-//     }
-// };
 
-export default request;
+export const removeFromFavorites = async (requestId) => {
+  try {
+    await api.delete(`/user/favourites/${requestId}`);
+  } catch (error) {
+    console.error('Error removing from favorites:', error);
+    throw error;
+  }
+};

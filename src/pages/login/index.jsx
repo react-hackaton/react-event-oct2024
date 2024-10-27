@@ -57,7 +57,19 @@ function LoginPage() {
     const isPasswordValid = validatePassword();
 
     if (isLoginValid && isPasswordValid) {
-      await login(loginValue, password);
+      const success = await login(loginValue, password);
+      if (!success) {
+        setPassword('');
+      }
+    } else {
+      toast.error('Пожалуйста, проверьте правильность введенных данных', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     }
   };
 
@@ -71,8 +83,6 @@ function LoginPage() {
         alignItems: 'center',
       }}
     >
-      <ToastContainer position="bottom-right" />
-
       <Box
         width="50%"
         height="100%"

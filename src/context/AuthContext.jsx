@@ -47,10 +47,10 @@ export const AuthProvider = ({ children }) => {
   const login = async (loginValue, passwordValue) => {
     setIsLoading(true);
     try {
-      const { auth, token } = await authAPI.login(loginValue, passwordValue);
+      const response = await authAPI.login(loginValue, passwordValue);
 
-      if (auth && token) {
-        localStorage.setItem(TOKEN_KEY, token);
+      if (response.auth && response.token) {
+        localStorage.setItem(TOKEN_KEY, response.token);
         localStorage.setItem('tokenTimestamp', Date.now().toString());
 
         const userData = {
@@ -61,27 +61,26 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem(USER_KEY, JSON.stringify(userData));
 
         navigate('/requests');
-        toast.success('Вы успешно вошли в систему');
+        toast.success('Вы успешно вошли в систему', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
         return true;
       }
       return false;
     } catch (error) {
-      let errorMessage = 'Произошла ошибка при входе';
-
-      if (error.response) {
-        switch (error.response.status) {
-          case 400:
-            errorMessage = 'Неверный логин или пароль';
-            break;
-          case 500:
-            errorMessage = 'Сервер временно недоступен';
-            break;
-          default:
-            errorMessage = 'Ошибка авторизации';
-        }
-      }
-
-      toast.error(errorMessage);
+      toast.error(error.message, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
       return false;
     } finally {
       setIsLoading(false);
