@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import InfoIcon from "@mui/icons-material/Info";
-import { Box, Paper, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import InfoIcon from '@mui/icons-material/Info';
+import { Box, Paper, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // eslint-disable-next-line react/prop-types
 function ProfileLogin({ title, login, password }) {
@@ -11,13 +11,13 @@ function ProfileLogin({ title, login, password }) {
     <Paper
       variant="outlined"
       sx={{
-        width: "320px",
-        height: "96px",
+        width: '320px',
+        height: '96px',
         p: 1,
-        display: "flex",
-        alignItems: "center",
+        display: 'flex',
+        alignItems: 'center',
         border: `1px solid ${theme.palette.primary.main}`,
-        overflow: "hidden",
+        overflow: 'hidden',
       }}
     >
       <Box display="flex" alignItems="flex-start" sx={{ mr: 2 }}>

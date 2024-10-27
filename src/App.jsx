@@ -1,15 +1,15 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 
-import "react-toastify/dist/ReactToastify.css";
-import { Layout } from "./components/Layout";
-import Help from "./pages/help/index";
-import LoginPage from "./pages/login";
-import ProfilePage from "./pages/profile";
-import Requests from "./pages/requests";
-import ProtectedRoute from "./components/ProtectedRoute";
-import PublicRoute from "./components/PublicRoute";
+import 'react-toastify/dist/ReactToastify.css';
+import { Layout } from './components/Layout';
+import Help from './pages/help/index';
+import LoginPage from './pages/login';
+import ProfilePage from './pages/profile';
+import Requests from './pages/requests';
+import ProtectedRoute from './components/ProtectedRoute';
+import PublicRoute from './components/PublicRoute';
 
 function App() {
   return (
