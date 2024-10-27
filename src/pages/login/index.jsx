@@ -1,33 +1,42 @@
-import React, { useState } from "react";
-
-import { Visibility } from "@mui/icons-material";
+import React, { useState, useEffect } from "react";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
   IconButton,
   InputAdornment,
   TextField,
-  Typography,
+  Typography
 } from "@mui/material";
 import Button from "@mui/material/Button";
 import { toast, ToastContainer } from "react-toastify";
+import { useAuth } from "../../context/AuthContext";
 
 import users from "../../data/userData.js";
-
 import ProfileLogin from "./profileLogin.jsx";
 
 function LoginPage() {
-  const [login, setLogin] = useState("");
+  const { currentUser, login, isLoading } = useAuth();
+  const navigate = useNavigate();
+
+  const [loginValue, setLoginValue] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [loginError, setLoginError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/profile", { replace: true });
+    }
+  }, [currentUser, navigate]);
+
   const validateLogin = () => {
-    if (!login) {
+    if (!loginValue) {
       setLoginError("Логин не может быть пустым");
       return false;
     }
-    if (!/\S+@\S+\.\S+/.test(login)) {
+    if (!/\S+@\S+\.\S+/.test(loginValue)) {
       setLoginError("Введите корректный e-mail");
       return false;
     }
@@ -48,13 +57,12 @@ function LoginPage() {
     return true;
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const isLoginValid = validateLogin();
     const isPasswordValid = validatePassword();
+
     if (isLoginValid && isPasswordValid) {
-      toast.success("Form is valid. Proceeding with login.");
-    } else {
-      toast.error("Please check your login credentials.");
+      await login(loginValue, password);
     }
   };
 
@@ -65,7 +73,7 @@ function LoginPage() {
         width: "100%",
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <ToastContainer position="bottom-right" />
@@ -74,7 +82,7 @@ function LoginPage() {
         width="50%"
         height="100%"
         sx={{
-          paddingLeft: "40px",
+          paddingLeft: "40px"
         }}
       >
         <Typography variant="h4" sx={{ mt: 8, mr: 5, textAlign: "left" }}>
@@ -94,8 +102,8 @@ function LoginPage() {
             placeholder="Введите e-mail"
             variant="outlined"
             margin="normal"
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
+            value={loginValue}
+            onChange={(e) => setLoginValue(e.target.value)}
             onBlur={validateLogin}
             error={Boolean(loginError)}
             helperText={loginError}
@@ -107,7 +115,7 @@ function LoginPage() {
             placeholder="Введите пароль"
             variant="outlined"
             margin="normal"
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             onBlur={validatePassword}
@@ -119,13 +127,13 @@ function LoginPage() {
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
-                    onClick={() => {}}
+                    onClick={() => setShowPassword(!showPassword)}
                     edge="end"
                   >
-                    <Visibility />
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
-              ),
+              )
             }}
           />
           <Button
@@ -134,8 +142,9 @@ function LoginPage() {
             fullWidth
             sx={{ mt: 2 }}
             onClick={handleLogin}
+            disabled={isLoading}
           >
-            ВОЙТИ
+            {isLoading ? "ВХОД..." : "ВОЙТИ"}
           </Button>
         </Box>
       </Box>
@@ -147,7 +156,7 @@ function LoginPage() {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-          paddingLeft: "40px",
+          paddingLeft: "40px"
         }}
       >
         <Typography
@@ -161,11 +170,12 @@ function LoginPage() {
             display: "flex",
             flexDirection: "column",
             gap: "30px",
-            overflowY: "auto",
+            overflowY: "auto"
           }}
         >
           {users.map((user) => (
             <ProfileLogin
+              key={user.login}
               title={user.title}
               login={user.login}
               password={user.password}
@@ -176,4 +186,5 @@ function LoginPage() {
     </Box>
   );
 }
+
 export default LoginPage;
