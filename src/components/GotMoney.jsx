@@ -3,6 +3,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { palette } from '@mui/system';
 
+import { Link as RouterLink } from 'react-router-dom';
+import { Link } from '@mui/material';
+
 function GotMoney() {
   return (
     <Card
@@ -74,9 +77,12 @@ function GotMoney() {
           Нас уже: 3 566 987
         </Typography>
 
-        <Button variant="contained" color="primary" fullWidth sx={{ borderRadius: '0px', mt: 3 }}>
-          ПОМОЧЬ
-        </Button>
+        <Link component={RouterLink} to="/requests"
+              color="inherit" underline="none">
+                <Button variant="contained" color="primary" fullWidth sx={{ borderRadius: '0px', mt: 3 }}>
+                    ПОМОЧЬ
+                </Button>
+        </Link>
       </CardContent>
     </Card>
   );
