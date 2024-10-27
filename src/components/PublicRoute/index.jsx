@@ -18,7 +18,7 @@ const PublicRoute = () => {
   }
 
   if (currentUser) {
-    return <Navigate to="/profile" replace />;
+    return <Navigate to="/requests" replace />;
   }
 
   return <Outlet />;

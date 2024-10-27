@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
       setCurrentUser(response);
       localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(response));
-      navigate("/profile");
+      navigate("/requests");
       toast.success("Вы успешно вошли в систему");
       return true;
     } catch (error) {
