@@ -18,7 +18,9 @@ const ProfileCard = ({ userData }) => {
         }}
       >
         <Box>
-          <Typography variant="h6">{userData.name}&nbsp;{userData.lastName}</Typography>
+          <Typography variant="h6">
+            {userData.name}&nbsp;{userData.lastName}
+          </Typography>
           <Stack direction="row">
             <Typography variant="subtitle2">Статус:&nbsp;</Typography>
             <Typography> {userData.status}</Typography>

@@ -41,7 +41,7 @@ const TabsSection = ({ userData }) => {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Личные данные" {...a11yProps(0)} />
-          <Tab label="Контакты"  {...a11yProps(1)} />
+          <Tab label="Контакты" {...a11yProps(1)} />
           <Tab label="Избранное" {...a11yProps(2)} />
         </Tabs>
       </Box>
