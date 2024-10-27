@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, TextField } from "@mui/material";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 
 import HelpFilter from "./helperFilter.jsx";
 
 function FilterPanel() {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(dayjs());
 
   return (
     <Box
@@ -15,13 +17,13 @@ function FilterPanel() {
         width: "290px",
         // height: "947px",
         padding: "20px",
-        backgroundColor: "#ffffff"
+        backgroundColor: "#ffffff",
       }}
     >
       <Typography
         variant="h6"
         sx={{
-          marginBottom: "25px"
+          marginBottom: "25px",
         }}
       >
         Фильтрация
@@ -34,7 +36,7 @@ function FilterPanel() {
 
       <Box
         sx={{
-          marginTop: "20px"
+          marginTop: "20px",
         }}
       >
         <HelpFilter
@@ -48,12 +50,12 @@ function FilterPanel() {
               height: "48px",
               alignContent: "center",
               border: "1px solid #D3D3D3",
-              paddingLeft: "10px"
+              paddingLeft: "10px",
             }}
           >
             <Typography
               sx={{
-                fontSize: "14px"
+                fontSize: "14px",
               }}
             >
               Волонтерство
@@ -63,7 +65,7 @@ function FilterPanel() {
           <Box
             sx={{
               backgroundColor: "#F5F5F5",
-              padding: "20px"
+              padding: "20px",
             }}
           >
             <HelpFilter
@@ -83,32 +85,52 @@ function FilterPanel() {
         </Box>
         <Box
           sx={{
-            marginTop: "20px"
+            marginTop: "20px",
           }}
         >
           <Typography
             sx={{
-              fontSize: "14px"
+              fontSize: "14px",
             }}
           >
             Помощь актуальна до:
           </Typography>
-          {/* <DatePicker */}
-          {/*  label="Uncontrolled picker" */}
-          {/*  defaultValue={dayjs("2022-04-17")} */}
-          {/* /> */}
-          <Button
-            variant="outlined"
-            fullWidth
+
+          <Box
             sx={{
-              borderRadius: "4px",
-              border: "1px solid #000",
-              mt: 2,
-              color: "#000000"
+              // width: "100%",
+              padding: "20px",
+              backgroundColor: "#ffffff",
             }}
           >
-            СБРОСИТЬ
-          </Button>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Выберете дату"
+                value={selectedDate}
+                onChange={(newValue) => setSelectedDate(newValue)}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    placeholder="Выберете дату"
+                    fullWidth
+                  />
+                )}
+              />
+            </LocalizationProvider>
+            <Button
+              variant="outlined"
+              fullWidth
+              sx={{
+                borderRadius: "4px",
+                border: "1px solid #000",
+                mt: 2,
+                color: "#000000",
+              }}
+              onClick={() => setSelectedDate(null)}
+            >
+              СБРОСИТЬ
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Box>
