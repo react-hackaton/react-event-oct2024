@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import Tabs from '@mui/material/Tabs';
+
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+
 // eslint-disable-next-line import/extensions
-import Personaldata from './Personaldata.jsx';
 import Contacts from './Contacts.jsx';
+import Personaldata from './Personaldata.jsx';
+import FavouritesCards from './Requests/favouritesCards.jsx';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -29,7 +32,7 @@ function a11yProps(index) {
   };
 }
 
-const TabsSection = () => {
+function TabsSection() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -52,10 +55,10 @@ const TabsSection = () => {
         <Contacts />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <FavouritesCards />
       </TabPanel>
     </Box>
   );
-};
+}
 
 export default TabsSection;
