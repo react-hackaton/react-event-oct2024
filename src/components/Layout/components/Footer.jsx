@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography } from '@mui/material';
 
 export default function Footer() {
   return (
@@ -10,15 +10,10 @@ export default function Footer() {
       justifyContent="center"
       width="100%"
       sx={{
-        height: "152px"
+        height: '152px',
       }}
     >
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        width="100%"
-      >
+      <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
         <Typography>Об ивенте </Typography>
         <Typography>GitHub проекта</Typography>
         <Typography>Чат для джунов</Typography>
