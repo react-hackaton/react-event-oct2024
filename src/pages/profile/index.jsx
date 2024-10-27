@@ -1,8 +1,9 @@
-import { Typography, Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+
 import ProfileCard from '../../components/ProfileCard.jsx';
 import TabsSection from '../../components/TabsSection.jsx';
 
-const ProfilePage = () => {
+function ProfilePage() {
   return (
     <Box sx={{ backgroundColor: '#F5F5F5', padding: 4 }}>
       <Typography variant="h5">Мой профиль</Typography>
@@ -17,6 +18,6 @@ const ProfilePage = () => {
       </Box>
     </Box>
   );
-};
+}
 
 export default ProfilePage;
