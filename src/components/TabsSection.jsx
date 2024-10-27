@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 // eslint-disable-next-line import/extensions,import/namespace
 import ProfileDataSection from './ProfileDataSection.jsx';
 import Contacts from './Contacts.jsx';
+import FavouritesCards from './Requests/favouritesCards.jsx';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
