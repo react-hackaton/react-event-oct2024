@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import Button from "@mui/material/Button";
+import { toast, ToastContainer } from "react-toastify";
 
 import users from "../../data/userData.js";
 
@@ -51,7 +52,9 @@ function LoginPage() {
     const isLoginValid = validateLogin();
     const isPasswordValid = validatePassword();
     if (isLoginValid && isPasswordValid) {
-      console.log("Form is valid. Proceed with login.");
+      toast.success("Form is valid. Proceeding with login.");
+    } else {
+      toast.error("Please check your login credentials.");
     }
   };
 
@@ -65,6 +68,8 @@ function LoginPage() {
         alignItems: "center",
       }}
     >
+      <ToastContainer position="bottom-right" />
+
       <Box
         width="50%"
         height="100%"
