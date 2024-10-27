@@ -27,3 +27,23 @@ export const removeFromFavorites = async (requestId) => {
     throw error;
   }
 };
+
+export const getFromFavorites = async () => {
+  try {
+    const response = await api.get('/user/favourites');
+    return response.data;
+  } catch (error) {
+    console.error('Error adding to favorites: error', error);
+    throw error;
+  }
+};
+
+export const fetchRequestById = async (id) => {
+  try {
+    const response = await api.get(`/request/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching request by ID:', error);
+    throw error;
+  }
+};

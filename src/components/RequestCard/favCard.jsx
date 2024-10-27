@@ -16,7 +16,7 @@ function getRandomImage() {
   return images[randomIndex];
 }
 
-function RequestCard({ request }) {
+function FavouriteCard({ request }) {
   const {
     id,
     title,
@@ -94,9 +94,9 @@ function RequestCard({ request }) {
         >
           {title ? title.replace(/^\[\d+\]\s*/, '') : ''}
         </Typography>
-        <IconButton aria-label="favorite" onClick={handleFavoriteClick}>
-          {isFavorited ? <Star sx={{ color: 'gold' }} /> : <StarBorder />}
-        </IconButton>
+        {/* <IconButton aria-label="favorite" onClick={handleFavoriteClick}> */}
+        {/*  {isFavorited ? <Star sx={{ color: 'gold' }} /> : <StarBorder />} */}
+        {/* </IconButton> */}
       </Box>
 
       <Divider />
@@ -228,4 +228,4 @@ function RequestCard({ request }) {
   );
 }
 
-export default RequestCard;
+export default FavouriteCard;
