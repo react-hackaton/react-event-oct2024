@@ -28,7 +28,7 @@ function LoginPage() {
 
   useEffect(() => {
     if (currentUser) {
-      navigate("/profile", { replace: true });
+      navigate("/requests", { replace: true });
     }
   }, [currentUser, navigate]);
 
