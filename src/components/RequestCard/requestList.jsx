@@ -23,7 +23,11 @@ function RequestList({ searchTerm }) {
     const getData = async () => {
       try {
         const fetchedData = await fetchRequests();
-        setData(fetchedData);
+          if (Array.isArray(fetchedData)) {
+              setData(fetchedData);
+          } else {
+              setData([]);
+          }
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
