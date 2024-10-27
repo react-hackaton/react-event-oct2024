@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
-// eslint-disable-next-line import/extensions
-import Personaldata from './Personaldata.jsx';
+// eslint-disable-next-line import/extensions,import/namespace
+import ProfileDataSection from './ProfileDataSection.jsx';
 import Contacts from './Contacts.jsx';
 
 function TabPanel(props) {
@@ -46,7 +46,7 @@ const TabsSection = ({ userData }) => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Personaldata userData={userData} />
+        <ProfileDataSection userData={userData} />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Contacts userData={userData} />

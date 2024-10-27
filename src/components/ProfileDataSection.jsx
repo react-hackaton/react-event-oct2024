@@ -1,6 +1,6 @@
 import { Container, Typography, Box, Stack } from '@mui/material';
 
-function Personaldata({ userData }) {
+const ProfileDataSection = ({ userData }) => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('ru-RU');
@@ -130,6 +130,6 @@ function Personaldata({ userData }) {
       </Box>
     </Container>
   );
-}
+};
 
-export default Personaldata;
+export default ProfileDataSection;
