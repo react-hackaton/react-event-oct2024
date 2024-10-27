@@ -15,6 +15,7 @@ import ProfilePage from './pages/profile';
 import Requests from './pages/requests';
 
 import HelpRequest from './pages/helpRequest';
+import NotFound from './pages/notFound/index.jsx';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
               <Route path="/help-request" element={<HelpRequest />} />
               <Route path="/requests" element={<Requests />} />
             </Route>
-            {/* <Route path="*" element={<NotFound />} /> */}
+             <Route path="*" element={<NotFound />} />
           </Routes>
 
           <ToastContainer
