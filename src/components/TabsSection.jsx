@@ -1,10 +1,10 @@
-import { useState } from "react";
-import Tabs from "@mui/material/Tabs";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
+import { useState } from 'react';
+import Tabs from '@mui/material/Tabs';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
 // eslint-disable-next-line import/extensions
-import Personaldata from "./Personaldata.jsx";
-import Contacts from "./Contacts.jsx";
+import Personaldata from './Personaldata.jsx';
+import Contacts from './Contacts.jsx';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -17,11 +17,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -29,7 +25,7 @@ function TabPanel(props) {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
 
@@ -41,8 +37,8 @@ const TabsSection = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: "#fff" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={{ backgroundColor: '#fff' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Личные данные" {...a11yProps(0)} />
           <Tab label="Контакты" {...a11yProps(1)} />

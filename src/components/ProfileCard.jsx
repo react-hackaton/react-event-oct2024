@@ -1,18 +1,20 @@
-import React from "react";
-import { Box, Typography, Stack, Button, Card } from "@mui/material";
-import ProfileImg from "../assets/CardMedia.svg";
+import React from 'react';
+import { Box, Typography, Stack, Button, Card } from '@mui/material';
+import ProfileImg from '../assets/CardMedia.svg';
 
 const ProfileCard = () => {
   return (
     <Card variant="outlined">
-      <img
-        src={ProfileImg}
-        alt="profile image"
-        loading="lazy"
-      />
-      <Stack direction="column" spacing={2} sx={{
-        height: "196px", p: 2, justifyContent: "space-between"
-      }}>
+      <img src={ProfileImg} alt="profile image" loading="lazy" />
+      <Stack
+        direction="column"
+        spacing={2}
+        sx={{
+          height: '196px',
+          p: 2,
+          justifyContent: 'space-between',
+        }}
+      >
         <Box>
           <Typography variant="h6">Ангелина Фомина</Typography>
           <Stack direction="row">
@@ -21,10 +23,12 @@ const ProfileCard = () => {
           </Stack>
         </Box>
 
-        <Button variant="outlined" fullWidth color='inherit'>Выйти из аккаунта</Button>
+        <Button variant="outlined" fullWidth color="inherit">
+          Выйти из аккаунта
+        </Button>
       </Stack>
-
-    </Card>);
+    </Card>
+  );
 };
 
 export default ProfileCard;
