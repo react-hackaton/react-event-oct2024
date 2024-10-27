@@ -7,6 +7,8 @@ import { toast } from 'react-toastify';
 import { addToFavorites } from '../../api/request.js';
 import defaultImage from '../../assets/requestCard1.png';
 
+import { removeBracketNumbers } from '../../utils';
+
 function RequestCard({ request }) {
   const {
     id,
@@ -19,6 +21,8 @@ function RequestCard({ request }) {
     contributorsCount,
     goalDescription,
   } = request;
+
+  const updatedTitle = removeBracketNumbers(title);
 
   const progress =
     requestGoal && requestGoalCurrentValue ? (requestGoal / requestGoalCurrentValue) * 100 : 0;
@@ -81,7 +85,7 @@ function RequestCard({ request }) {
             height: '70px',
           }}
         >
-          {title}
+          {updatedTitle}
         </Typography>
         <IconButton aria-label="favorite" onClick={handleFavoriteClick}>
           {isFavorited ? <Star sx={{ color: 'gold' }} /> : <StarBorder />}
