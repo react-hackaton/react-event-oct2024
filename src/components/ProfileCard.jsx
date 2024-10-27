@@ -2,7 +2,9 @@ import React from 'react';
 import { Box, Typography, Stack, Button, Card } from '@mui/material';
 import ProfileImg from '../assets/CardMedia.svg';
 
-const ProfileCard = () => {
+const ProfileCard = ({ userData }) => {
+  console.log('userData', userData);
+
   return (
     <Card variant="outlined">
       <img src={ProfileImg} alt="profile image" loading="lazy" />
@@ -16,10 +18,10 @@ const ProfileCard = () => {
         }}
       >
         <Box>
-          <Typography variant="h6">Ангелина Фомина</Typography>
+          <Typography variant="h6">{userData.name}&nbsp;{userData.lastName}</Typography>
           <Stack direction="row">
-            <Typography variant="subtitle2">Статус:</Typography>
-            <Typography>Начинающий</Typography>
+            <Typography variant="subtitle2">Статус:&nbsp;</Typography>
+            <Typography> {userData.status}</Typography>
           </Stack>
         </Box>
 
