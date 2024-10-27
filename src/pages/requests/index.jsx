@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 
-import { ListAlt } from "@mui/icons-material";
-import GridViewIcon from "@mui/icons-material/GridView";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import RequestList from "../../components/RequestCard/requestList.jsx";
 import FilterPanel from "../../components/Requests/filterPanel.jsx";
 import SearchResultsHeader from "../../components/Requests/searchSection.jsx";
 
 function Requests() {
-  const [view, setView] = useState("grid");
+  // const [view, setView] = useState("grid");
   const [searchWord, setSearchWord] = useState("");
 
-  const handleViewChange = (newView) => {
-    setView(newView);
-    console.log(`View changed to: ${newView}`);
-  };
+  // const handleViewChange = (newView) => {
+  //   setView(newView);
+  //   console.log(`View changed to: ${newView}`);
+  // };
 
   const handleSearchChange = (event) => {
     setSearchWord(event.target.value);

@@ -10,10 +10,10 @@ import {
   IconButton,
   LinearProgress,
 } from "@mui/material";
-import axios from "axios";
 import { toast } from "react-toastify";
 
-import defaultImage from "../assets/requestCard3.png";
+import defaultImage from "../../assets/requestCard1.png";
+import { addToFavorites } from "../../services/api.js";
 
 function RequestCard({ request }) {
   const {
@@ -35,7 +35,7 @@ function RequestCard({ request }) {
 
   const handleFavoriteClick = async () => {
     try {
-      await axios.post("/api/user/favorites", { requestId: id });
+      await addToFavorites({ requestId: id });
 
       setIsFavorited(!isFavorited);
       if (!isFavorited) {

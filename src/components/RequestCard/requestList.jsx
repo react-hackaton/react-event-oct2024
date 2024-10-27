@@ -6,6 +6,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Box, IconButton, Pagination, Typography } from "@mui/material";
 
 import requestCardData from "../../data/requestCardData.js";
+import { fetchRequests } from "../../services/api.js";
 import RequestsNotFound from "../RequestNotFound.jsx";
 
 import RequestCard from "./index.jsx";
@@ -14,13 +15,33 @@ const ITEMS_PER_PAGE = 3;
 
 function RequestList({ searchTerm }) {
   const [page, setPage] = useState(1);
-  const [view, setView] = useState("grid");
-  const filteredData = requestCardData.filter((request) => {
-    const title = request.title ? request.title.toLowerCase() : "";
-    const organizer = request.organizer ? request.organizer.toLowerCase() : "";
-    const search = searchTerm.toLowerCase();
-    return title.includes(search) || organizer.includes(search);
-  });
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+    const [view, setView] = useState("grid");
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const fetchedData = await fetchRequests();
+        setData(fetchedData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
+
+    const filteredData = data.filter((request) => {
+        const title = request.title ? request.title.toLowerCase() : "";
+        const organization = request.organization?.title
+            ? request.organization.title.toLowerCase()
+            : "";
+        const search = searchTerm.toLowerCase();
+        return title.includes(search) || organization.includes(search);
+    });
 
   const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
 
@@ -124,6 +145,7 @@ function RequestList({ searchTerm }) {
           </Box>
         )}
       </Box>
+
     </Box>
   );
 }
