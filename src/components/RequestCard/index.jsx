@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { Star, StarBorder } from '@mui/icons-material';
 import { Box, Typography, Paper, Button, Divider, IconButton, LinearProgress } from '@mui/material';
+import { toast } from 'react-toastify';
+
+import { addToFavorites } from '../../api/request.js';
+import defaultImage from '../../assets/requestCard1.png';
 
 function RequestCard({ request }) {
-  const { title, organizer, location = {}, goal, endDate, collected = {}, imageUrl } = request;
+  const {
+    id,
+    title,
+    organization = {},
+    location,
+    requestGoal,
+    requestGoalCurrentValue,
+    endingDate,
+    contributorsCount,
+  } = request;
 
-  const { region = 'Неизвестно', city = 'Неизвестно' } = location;
-  const { amount = '0', target = '0', donorsCount = '0' } = collected;
-  const progress = (amount / target) * 100;
+  // const {region = "Неизвестно", city = "Неизвестно"} = location;
+  // const {amount = "0", target = "0", contributorsCount = 0} = collected;
+  const progress = (requestGoalCurrentValue / requestGoal) * 100;
+
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const handleFavoriteClick = async () => {
+    try {
+      await addToFavorites({ requestId: id });
+
+      setIsFavorited(!isFavorited);
+      if (!isFavorited) {
+        toast.success('Added to favorites!');
+      } else {
+        toast.info('Removed from favorites.');
+      }
+    } catch (error) {
+      toast.error('Error updating favorite.');
+    }
+  };
+
+  const imageUrl = defaultImage;
 
   return (
     <Paper
@@ -50,8 +82,8 @@ function RequestCard({ request }) {
         >
           {title}
         </Typography>
-        <IconButton aria-label="favorite">
-          <StarBorderIcon />
+        <IconButton aria-label="favorite" onClick={handleFavoriteClick}>
+          {isFavorited ? <Star sx={{ color: 'gold' }} /> : <StarBorder />}
         </IconButton>
       </Box>
 
@@ -66,7 +98,7 @@ function RequestCard({ request }) {
         >
           Организатор
         </Typography>
-        <Typography variant="body2">{organizer}</Typography>
+        <Typography variant="body2">{organization.title}</Typography>
       </Box>
 
       <Box>
@@ -78,32 +110,21 @@ function RequestCard({ request }) {
         >
           Локация
         </Typography>
-        {region === 'Онлайн' ? (
-          <Typography
-            sx={{
-              fontSize: '14px',
-            }}
-          >
-            Онлайн
-          </Typography>
-        ) : (
-          <>
-            <Typography
-              sx={{
-                fontSize: '14px',
-              }}
-            >
-              Область: {region}
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: '14px',
-              }}
-            >
-              Населенный пункт: {city}
-            </Typography>
-          </>
-        )}
+
+        <Typography
+          sx={{
+            fontSize: '14px',
+          }}
+        >
+          Область: {location.district}
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: '14px',
+          }}
+        >
+          Населенный пункт: {location.city}
+        </Typography>
       </Box>
 
       <Box>
@@ -115,7 +136,7 @@ function RequestCard({ request }) {
         >
           Цель сбора
         </Typography>
-        <Typography variant="body2">{goal}</Typography>
+        <Typography variant="body2">{requestGoal}</Typography>
       </Box>
 
       <Box>
@@ -127,7 +148,7 @@ function RequestCard({ request }) {
         >
           Завершение
         </Typography>
-        <Typography variant="body2">{endDate}</Typography>
+        <Typography variant="body2">{endingDate}</Typography>
       </Box>
 
       <Box mt={2}>
@@ -168,7 +189,7 @@ function RequestCard({ request }) {
               transform: 'translateY(50%)',
             }}
           >
-            {amount.toLocaleString()} руб
+            {requestGoalCurrentValue.toString()} руб
           </Typography>
           <Typography
             sx={{
@@ -179,13 +200,15 @@ function RequestCard({ request }) {
               transform: 'translateY(50%)',
             }}
           >
-            {target.toLocaleString()} руб
+            {requestGoalCurrentValue.toString()} руб
           </Typography>
         </Box>
       </Box>
 
       <Typography variant="caption" color="textSecondary" mt={1}>
-        {donorsCount ? `Нас уже: ${donorsCount}` : 'Вы будете первым'}
+        {contributorsCount.toString()
+          ? `Нас уже: ${contributorsCount.toString()}`
+          : 'Вы будете первым'}
       </Typography>
 
       <Button variant="contained" color="primary" fullWidth sx={{ borderRadius: '4px', mt: 2 }}>
