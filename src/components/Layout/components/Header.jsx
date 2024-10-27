@@ -1,6 +1,7 @@
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, Button, Typography } from "@mui/material";
 import HeaderImg from "../../../assets/_IconButton_.svg";
+import AuthButton from "../../AuthButton/index.jsx";
 
 function Header() {
   return (
@@ -24,13 +25,7 @@ function Header() {
              loading="lazy" />
 
         <Typography>Запросы о помощи</Typography>
-        <Button
-          variant="outlined"
-          color="inherit"
-          endIcon={<ArrowForwardIosIcon />}
-        >
-          Войти
-        </Button>
+        <AuthButton/>
       </Box>
     </Box>
   );
