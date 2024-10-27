@@ -5,7 +5,16 @@ import { Box, Button, Divider, IconButton, LinearProgress, Paper, Typography } f
 import { toast } from 'react-toastify';
 
 import { addToFavorites, removeFromFavorites } from '../../api/request.js';
-import defaultImage from '../../assets/requestCard1.png';
+import image1 from '../../assets/requestCard1.png';
+import image2 from '../../assets/requestCard2.png';
+import image3 from '../../assets/requestCard3.png';
+
+const images = [image1, image2, image3];
+
+function getRandomImage() {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return images[randomIndex];
+}
 
 function RequestCard({ request }) {
   const {
@@ -42,7 +51,7 @@ function RequestCard({ request }) {
     }
   };
 
-  const imageUrl = defaultImage;
+  const imageUrl = getRandomImage();
   const formattedDate = new Date(endingDate).toLocaleDateString('en-GB');
 
   return (
