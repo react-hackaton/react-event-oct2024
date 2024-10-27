@@ -1,19 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Star, StarBorder } from "@mui/icons-material";
-import {
-  Box,
-  Typography,
-  Paper,
-  Button,
-  Divider,
-  IconButton,
-  LinearProgress,
-} from "@mui/material";
-import { toast } from "react-toastify";
+import { Star, StarBorder } from '@mui/icons-material';
+import { Box, Typography, Paper, Button, Divider, IconButton, LinearProgress } from '@mui/material';
+import { toast } from 'react-toastify';
 
-import defaultImage from "../../assets/requestCard1.png";
-import { addToFavorites } from "../../services/api.js";
+import { addToFavorites } from '../../api/request.js';
+import defaultImage from '../../assets/requestCard1.png';
 
 function RequestCard({ request }) {
   const {
@@ -39,12 +31,12 @@ function RequestCard({ request }) {
 
       setIsFavorited(!isFavorited);
       if (!isFavorited) {
-        toast.success("Added to favorites!");
+        toast.success('Added to favorites!');
       } else {
-        toast.info("Removed from favorites.");
+        toast.info('Removed from favorites.');
       }
     } catch (error) {
-      toast.error("Error updating favorite.");
+      toast.error('Error updating favorite.');
     }
   };
 
@@ -54,12 +46,12 @@ function RequestCard({ request }) {
     <Paper
       elevation={3}
       sx={{
-        width: "270px",
-        padding: "16px",
-        borderRadius: "8px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
+        width: '270px',
+        padding: '16px',
+        borderRadius: '8px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
       }}
     >
       <Box
@@ -67,31 +59,31 @@ function RequestCard({ request }) {
         src={imageUrl}
         alt="Donation Image"
         sx={{
-          borderRadius: "4px",
-          width: "100%",
-          maxWidth: "200px",
-          height: "auto",
-          margin: "0 auto",
+          borderRadius: '4px',
+          width: '100%',
+          maxWidth: '200px',
+          height: 'auto',
+          margin: '0 auto',
         }}
       />
 
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Typography
           sx={{
-            fontSize: "16px",
-            fontWeight: "700",
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
+            fontSize: '16px',
+            fontWeight: '700',
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
             WebkitLineClamp: 3,
             lineClamp: 3,
-            height: "70px",
+            height: '70px',
           }}
         >
           {title}
         </Typography>
         <IconButton aria-label="favorite" onClick={handleFavoriteClick}>
-          {isFavorited ? <Star sx={{ color: "gold" }} /> : <StarBorder />}
+          {isFavorited ? <Star sx={{ color: 'gold' }} /> : <StarBorder />}
         </IconButton>
       </Box>
 
@@ -100,8 +92,8 @@ function RequestCard({ request }) {
       <Box>
         <Typography
           sx={{
-            fontSize: "14px",
-            fontWeight: "700",
+            fontSize: '14px',
+            fontWeight: '700',
           }}
         >
           Организатор
@@ -112,8 +104,8 @@ function RequestCard({ request }) {
       <Box>
         <Typography
           sx={{
-            fontSize: "14px",
-            fontWeight: "700",
+            fontSize: '14px',
+            fontWeight: '700',
           }}
         >
           Локация
@@ -121,14 +113,14 @@ function RequestCard({ request }) {
 
         <Typography
           sx={{
-            fontSize: "14px",
+            fontSize: '14px',
           }}
         >
           Область: {location.district}
         </Typography>
         <Typography
           sx={{
-            fontSize: "14px",
+            fontSize: '14px',
           }}
         >
           Населенный пункт: {location.city}
@@ -138,8 +130,8 @@ function RequestCard({ request }) {
       <Box>
         <Typography
           sx={{
-            fontSize: "14px",
-            fontWeight: "700",
+            fontSize: '14px',
+            fontWeight: '700',
           }}
         >
           Цель сбора
@@ -150,8 +142,8 @@ function RequestCard({ request }) {
       <Box>
         <Typography
           sx={{
-            fontSize: "14px",
-            fontWeight: "700",
+            fontSize: '14px',
+            fontWeight: '700',
           }}
         >
           Завершение
@@ -162,50 +154,50 @@ function RequestCard({ request }) {
       <Box mt={2}>
         <Typography
           sx={{
-            fontSize: "14px",
-            fontWeight: "700",
+            fontSize: '14px',
+            fontWeight: '700',
           }}
         >
           Мы собрали
         </Typography>
         <Box
           sx={{
-            position: "relative",
-            width: "100%",
-            mt: "8px",
-            mb: "8px",
+            position: 'relative',
+            width: '100%',
+            mt: '8px',
+            mb: '8px',
           }}
         >
           <LinearProgress
             variant="determinate"
             value={progress}
             sx={{
-              height: "8px",
-              borderRadius: "4px",
-              backgroundColor: "#e0e0e0",
-              "& .MuiLinearProgress-bar": {
-                backgroundColor: "#90caf9",
+              height: '8px',
+              borderRadius: '4px',
+              backgroundColor: '#e0e0e0',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#90caf9',
               },
             }}
           />
           <Typography
             sx={{
-              fontSize: "14px",
-              position: "absolute",
+              fontSize: '14px',
+              position: 'absolute',
               left: 0,
-              top: "5px",
-              transform: "translateY(50%)",
+              top: '5px',
+              transform: 'translateY(50%)',
             }}
           >
             {requestGoalCurrentValue.toString()} руб
           </Typography>
           <Typography
             sx={{
-              fontSize: "14px",
-              position: "absolute",
+              fontSize: '14px',
+              position: 'absolute',
               right: 0,
-              top: "5px",
-              transform: "translateY(50%)",
+              top: '5px',
+              transform: 'translateY(50%)',
             }}
           >
             {requestGoalCurrentValue.toString()} руб
@@ -216,15 +208,10 @@ function RequestCard({ request }) {
       <Typography variant="caption" color="textSecondary" mt={1}>
         {contributorsCount.toString()
           ? `Нас уже: ${contributorsCount.toString()}`
-          : "Вы будете первым"}
+          : 'Вы будете первым'}
       </Typography>
 
-      <Button
-        variant="contained"
-        color="primary"
-        fullWidth
-        sx={{ borderRadius: "4px", mt: 2 }}
-      >
+      <Button variant="contained" color="primary" fullWidth sx={{ borderRadius: '4px', mt: 2 }}>
         ПОМОЧЬ
       </Button>
     </Paper>

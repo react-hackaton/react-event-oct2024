@@ -6,7 +6,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Box, IconButton, Pagination, Typography } from "@mui/material";
 
 import requestCardData from "../../data/requestCardData.js";
-import { fetchRequests } from "../../services/api.js";
+import { fetchRequests } from "../../api/request.js";
 import RequestsNotFound from "../RequestNotFound.jsx";
 
 import RequestCard from "./index.jsx";
