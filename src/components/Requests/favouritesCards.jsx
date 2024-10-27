@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { Box, Pagination, Typography } from '@mui/material';
 
 import { fetchRequestById, getFromFavorites } from '../../api/request.js';
+import Error from '../Error.jsx';
+import ErrorNotFound from '../ErrorNotFound.jsx';
 import RequestCard from '../RequestCard/index.jsx';
 
 const ITEMS_PER_PAGE = 3;
@@ -55,12 +57,13 @@ function FavouritesCards() {
   }
 
   if (error) {
-    return <Typography>{error}</Typography>;
+    return <Error />;
   }
 
   if (favorites.length === 0) {
-    return <Typography>No favorites found.</Typography>;
+    return <ErrorNotFound />;
   }
+
   return (
     <Box>
       <Box
@@ -71,9 +74,9 @@ function FavouritesCards() {
           padding: '16px',
         }}
       >
-        {currentItems.map((request, index) => (
-          <RequestCard key={request.id} request={request} />
-        ))}
+        {currentItems.map((request) => {
+          return <RequestCard key={request.id} request={request} />;
+        })}
       </Box>
       {totalPages > 1 && (
         <Box
@@ -95,5 +98,4 @@ function FavouritesCards() {
     </Box>
   );
 }
-
 export default FavouritesCards;
