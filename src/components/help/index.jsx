@@ -1,10 +1,11 @@
-import { Typography, Box, Stack } from '@mui/material';
+import { Typography, Box, Stack, Paper } from '@mui/material';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 function Index() {
   return (
-    <Box sx={{ width: '550px' }}>
+    <Paper sx={{ width: '750px', backgroundColor: 'white'}}>
+      <Box sx={{ width: '550px', backgroundColor: 'white', pl: '20px', pt: "20px", pb:"20px"}}>
       <Typography variant="h5" sx={{ fontSize: '24px', mb: 3 }}>
         Сбор средств для пенсионерки Ангелины Ивановны
       </Typography>
@@ -139,7 +140,8 @@ function Index() {
           </Stack>
         </Stack>
       </Stack>
-    </Box>
+      </Box>
+    </Paper>
   );
 }
 

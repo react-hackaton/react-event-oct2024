@@ -10,7 +10,6 @@ function GotMoney() {
             width: "320px",
             height: "470px",
             flexDirection: "column",
-            border: 1,
             gap: 2,
             mt: 2,
           }}>
