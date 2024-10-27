@@ -18,13 +18,12 @@ export const addToFavorites = async (requestId) => {
     throw error;
   }
 };
-//
-//
-// export const removeFromFavorites = async (requestId) => {
-//     try {
-//         await request.delete(`/user/favorites/${requestId}`);
-//     } catch (error) {
-//         console.error("Error removing from favorites:", error);
-//         throw error;
-//     }
-// };
+
+export const removeFromFavorites = async (requestId) => {
+  try {
+    await api.delete(`/user/favourites/${requestId}`);
+  } catch (error) {
+    console.error('Error removing from favorites:', error);
+    throw error;
+  }
+};
