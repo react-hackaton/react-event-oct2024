@@ -1,6 +1,11 @@
 import { Container, Typography, Box, Stack } from '@mui/material';
 
-function Personaldata() {
+function Personaldata({ userData }) {
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('ru-RU');
+  };
+
   return (
     <Container>
       <Box sx={{ mb: 2 }}>
@@ -12,8 +17,8 @@ function Personaldata() {
             <strong>Фамилия: </strong>
           </Typography>
           <Typography variant="body2" sx={{ fontSize: '14px' }}>
-            {' '}
-            Фомина
+            &nbsp;
+            {userData?.lastName}
           </Typography>
         </Stack>
         <Stack direction="row" spacing={0.5}>
@@ -21,8 +26,17 @@ function Personaldata() {
             <strong>Имя:</strong>
           </Typography>
           <Typography variant="body2" sx={{ fontSize: '14px' }}>
-            {' '}
-            Ангелина
+            &nbsp;
+            {userData?.name}
+          </Typography>
+        </Stack>
+        <Stack direction="row" spacing={0.5}>
+          <Typography variant="subtitle2" sx={{ fontSize: '14px' }}>
+            <strong>Статус:</strong>
+          </Typography>
+          <Typography variant="body2" sx={{ fontSize: '14px' }}>
+            &nbsp;
+            {userData?.status}
           </Typography>
         </Stack>
       </Box>
@@ -32,7 +46,7 @@ function Personaldata() {
           Дата рождения
         </Typography>
         <Typography variant="body2" sx={{ fontSize: '14px' }}>
-          13.02.1994
+          {userData?.birthdate ? formatDate(userData.birthdate) : ''}
         </Typography>
       </Box>
 
@@ -40,112 +54,70 @@ function Personaldata() {
         <Typography variant="h6" sx={{ mb: 1.5 }}>
           Локация для помощи
         </Typography>
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Область: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            {' '}
-            Владимирская
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={0.5} sx={{ mb: 2 }}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Населённый пункт: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 2 }}>
-            {' '}
-            Владимир
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Область: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            {' '}
-            Нижегородская
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Населённый пункт: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px' }}>
-            {' '}
-            Нижний Новгород
-          </Typography>
-        </Stack>
+        {userData?.baseLocations?.map((location, index) => (
+          <Box key={index} sx={{ mb: index !== userData.baseLocations.length - 1 ? 2 : 0 }}>
+            <Stack direction="row" spacing={0.5}>
+              <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                <strong>Область: </strong>
+              </Typography>
+              <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                {location.district}
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={0.5}>
+              <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                <strong>Населённый пункт: </strong>
+              </Typography>
+              <Typography variant="body2" sx={{ fontSize: '14px' }}>
+                {location.city}
+              </Typography>
+            </Stack>
+          </Box>
+        ))}
       </Box>
 
       <Box sx={{ mb: 3 }}>
         <Typography variant="h6" sx={{ mb: 1.5 }}>
           Образование
         </Typography>
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Учреждение: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            {' '}
-            МОУ СОШ №7
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Уровень образования: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            {' '}
-            Средний общий
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={0.5} sx={{ mb: 2 }}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Год окончания: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 2 }}>
-            {' '}
-            2010
-          </Typography>
-        </Stack>
-
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Учреждение: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            {' '}
-            Московский государственный университет имени М. В. Ломоносова
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Уровень образования: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            {' '}
-            Высший
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Направление: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            {' '}
-            Информатика и вычислительная техника
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={0.5}>
-          <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            <strong>Год окончания: </strong>
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
-            {' '}
-            2023
-          </Typography>
-        </Stack>
+        {userData?.educations?.map((education, index) => (
+          <Box key={index} sx={{ mb: index !== userData.educations.length - 1 ? 2 : 0 }}>
+            <Stack direction="row" spacing={0.5}>
+              <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                <strong>Учреждение: </strong>
+              </Typography>
+              <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                {education.organizationName}
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={0.5}>
+              <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                <strong>Уровень образования: </strong>
+              </Typography>
+              <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                {education.level}
+              </Typography>
+            </Stack>
+            {education.specialization && (
+              <Stack direction="row" spacing={0.5}>
+                <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                  <strong>Направление: </strong>
+                </Typography>
+                <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                  {education.specialization}
+                </Typography>
+              </Stack>
+            )}
+            <Stack direction="row" spacing={0.5}>
+              <Typography variant="subtitle2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                <strong>Год окончания: </strong>
+              </Typography>
+              <Typography variant="body2" sx={{ fontSize: '14px', mb: 0.5 }}>
+                {education.graduationYear}
+              </Typography>
+            </Stack>
+          </Box>
+        ))}
       </Box>
 
       <Box sx={{ mb: 3 }}>
@@ -153,12 +125,7 @@ function Personaldata() {
           Обо мне
         </Typography>
         <Typography variant="body2" sx={{ fontSize: '14px' }} className="aboutMe">
-          Я волонтёр, который работает с пенсионерами, и этотприносит мне огромную радость. Каждый
-          день я общаюсь с удивительными людьми, которые делятся своим жизненным опытом и мудростью.
-          Мы вместе проводим время, играем в настольные книги, читаем книги и просто беседуем. Я
-          вижу, как важно для них чувствовать внимание и заботу, и это вдохновляет меня работать ещё
-          усерднее. Каждая улыбка и благодарность от них наполняют моё сердце теплом.
-          <br /> Волонтёрство с пенсионерами стало для меня не только делом, но и настоящей дружбой.
+          {userData?.additionalInfo}
         </Typography>
       </Box>
     </Container>
