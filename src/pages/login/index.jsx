@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Visibility } from "@mui/icons-material";
 import {
@@ -15,6 +15,46 @@ import users from "../../data/userData.js";
 import ProfileLogin from "./profileLogin.jsx";
 
 function LoginPage() {
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [loginError, setLoginError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const validateLogin = () => {
+    if (!login) {
+      setLoginError("Логин не может быть пустым");
+      return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(login)) {
+      setLoginError("Введите корректный e-mail");
+      return false;
+    }
+    setLoginError("");
+    return true;
+  };
+
+  const validatePassword = () => {
+    if (!password) {
+      setPasswordError("Пароль не может быть пустым");
+      return false;
+    }
+    if (password.length < 6) {
+      setPasswordError("Пароль должен содержать минимум 6 символов");
+      return false;
+    }
+    setPasswordError("");
+    return true;
+  };
+
+  const handleLogin = () => {
+    const isLoginValid = validateLogin();
+    const isPasswordValid = validatePassword();
+    if (isLoginValid && isPasswordValid) {
+      console.log("Form is valid. Proceed with login.");
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -49,6 +89,11 @@ function LoginPage() {
             placeholder="Введите e-mail"
             variant="outlined"
             margin="normal"
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
+            onBlur={validateLogin}
+            error={Boolean(loginError)}
+            helperText={loginError}
             sx={{ mb: "30px" }}
           />
           <TextField
@@ -57,6 +102,12 @@ function LoginPage() {
             placeholder="Введите пароль"
             variant="outlined"
             margin="normal"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            onBlur={validatePassword}
+            error={Boolean(passwordError)}
+            helperText={passwordError}
             sx={{ mb: "40px" }}
             InputProps={{
               endAdornment: (
@@ -72,7 +123,13 @@ function LoginPage() {
               ),
             }}
           />
-          <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{ mt: 2 }}
+            onClick={handleLogin}
+          >
             ВОЙТИ
           </Button>
         </Box>
@@ -96,8 +153,6 @@ function LoginPage() {
         </Typography>
         <Box
           sx={{
-            // width: "320px",
-            // height: "348px",
             display: "flex",
             flexDirection: "column",
             gap: "30px",
