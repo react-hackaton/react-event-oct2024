@@ -81,7 +81,7 @@ function RequestCard({ request }) {
             height: '70px',
           }}
         >
-          {title}
+          {title ? title.replace(/^\[\d+\]\s*/, '') : ''}
         </Typography>
         <IconButton aria-label="favorite" onClick={handleFavoriteClick}>
           {isFavorited ? <Star sx={{ color: 'gold' }} /> : <StarBorder />}
