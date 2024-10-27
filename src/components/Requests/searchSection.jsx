@@ -6,11 +6,16 @@ import {
   Typography,
   IconButton,
   InputAdornment,
+  Box,
 } from "@mui/material";
 
-function SearchResultsHeader() {
+function SearchResultsHeader({ searchTerm, onSearchChange }) {
   return (
-    <div>
+    <Box
+      sx={{
+        width: "100%",
+      }}
+    >
       <Typography
         sx={{
           marginBottom: "25px",
@@ -22,6 +27,8 @@ function SearchResultsHeader() {
         placeholder="Введите название задачи или организации"
         variant="standard"
         fullWidth
+        value={searchTerm}
+        onChange={onSearchChange}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -41,40 +48,7 @@ function SearchResultsHeader() {
           maxWidth: "400px",
         }}
       />
-    </div>
-    // <Box
-    //   sx={{
-    //     backgroundColor: "#ffffff",
-    //     border: "1px solid",
-    //     borderColor: "primary.light",
-    //     display: "flex",
-    //     flexDirection: "column",
-    //     justifyContent: "space-between",
-    //     alignItems: "flex-start",
-    //     mb: 2,
-    //   }}
-    // >
-    //   <Typography
-    //     sx={{
-    //       marginBottom: "25px",
-    //     }}
-    //   >
-    //     Найти запрос{" "}
-    //   </Typography>
-    //   <TextField
-    //     placeholder="Введите название задачи или организации"
-    //     InputProps={{
-    //       startAdornment: (
-    //         <IconButton>
-    //           <Search />
-    //         </IconButton>
-    //       ),
-    //     }}
-    //     variant="outlined"
-    //     fullWidth
-    //     sx={{ maxWidth: "400px", ml: 2 }}
-    //   />
-    // </Box>
+    </Box>
   );
 }
 
