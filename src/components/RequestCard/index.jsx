@@ -9,7 +9,6 @@ import defaultImage from '../../assets/requestCard1.png';
 
 import { removeBracketNumbers } from '../../utils';
 
-
 function RequestCard({ request }) {
   const {
     id,
